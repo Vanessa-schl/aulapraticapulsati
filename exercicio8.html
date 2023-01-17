@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   Peça para o Cliente escolher entre quatro pedidos sendo eles`
+
+      //Pizza = R$12,00`
+      //`Pão de Queijo = R$ 4,00`
+      //`Macarrão R$ 16,00`
+      //`Pastel = R$ 4,50`
+      //`Após a escolha pergunte quanto o cliente estará dando de valor ao caixa.`
+      //`Ao final do programa calcule se o Cliente precisa de troco ou não e informe o valor do troco caso necesário.`
+
+      let pedido = prompt(
+        "Qual seu pedido? Escolha entre: pão de queijo(R$4), macarrão(R$16), pastel(R$4,50) ou pizza(R$12)"
+      );
+      let caixa = parseInt(prompt("Qual será o valor entregue?"));
+      let troco;
+      let pizza = 12;
+      let paodequeijo = 4;
+      let macarrao = 16;
+      let pastel = 4.5;
+
+      if (pedido == "pizza") {
+        troco = caixa - pizza;
+        alert("Seu troco é: " + troco);
+      } else if (pedido == "pão de queijo") {
+        troco = caixa - paodequeijo;
+        alert("seu troco é: " + troco);
+      } else if (pedido == "macarrão") {
+        troco = caixa - macarrao;
+        alert("seu troco é: " + troco);
+      } else if (pedido == "pastel") {
+        troco = caixa - pastel;
+        alert("seu troco é: " + troco);
+      } else {
+        alert("Volte sempre.");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  Faça um script para calcular a Hipotenusa
+      //  de um triangulo retangulo, onde o usuario informa os catetos e o programa calcula a hipotenusa.`
+
+      let cateto1 = parseInt(prompt("Informe o numero do primeiro cateto: "));
+      let cateto2 = parseInt(prompt("Informe o numero do segundo cateto: "));
+      let hipotenusa;
+      let somacat;
+
+      cateto1 = cateto1 * cateto1;
+      cateto2 = cateto2 * cateto2;
+      somacat = cateto1 + cateto2;
+      hipotenusa = Math.sqrt(somacat);
+      alert('Hipotenusa é igual a: ' + hipotenusa);
+      
+    </script>
+  </body>
+</html>

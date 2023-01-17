@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Faça um script para calcular quanto será gasto em uma viagem, onde o usuario
+      //informa a distancia em KM e o consumo do carro em KM/L e o programa calcula o valor da viagem.
+      let distanciaKM = parseInt(
+        prompt("Informe a distância percorrida em KM: ")
+      );
+      let consumoKML = parseInt(prompt("Informe o consumo do carro em KM/L: "));
+      let combustivel;
+      let valorviagem;
+      let valorgasolina = 5;
+
+      combustivel = distanciaKM / consumoKML;
+      valorviagem = combustivel * valorgasolina;
+      alert("Valor da viagem: " + valorviagem);
+    </script>
+  </body>
+</html>

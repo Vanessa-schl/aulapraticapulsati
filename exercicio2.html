@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //peça três notas ao aluno, converta para numero e calcule a media do mesmo, caso a media for menor que 7
+      // mostrar que foi reprovado, caso a media seja exatamente 7 mostrar que ele passou com a media 7 caso a media
+      // seja maior que 7 mostrar que ele passou com media acima de 7.`
+      let nota1 = parseInt(prompt("informe nota 1: "));
+      let nota2 = parseInt(prompt("informe nota 1: "));
+      let nota3 = parseInt(prompt("informe nota 1: "));
+
+      let media;
+      media = (nota1 + nota2 + nota3) / 3;
+
+      if (media < 7) {
+        alert("Reprovado");
+      } else if (media == 7) {
+        alert("Aprovado com média 7");
+      } else {
+        alert("Aprovado");
+      }
+    </script>
+  </body>
+</html>

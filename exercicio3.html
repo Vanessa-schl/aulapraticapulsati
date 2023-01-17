@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Criar uma calculadora, onde o usuario informa 2 números e a operação matemática que ele quer e depois mostrar
+      //o resultado na tela.
+
+      let numero1 = parseInt(prompt("Informe número 1: "));
+      let numero2 = parseInt(prompt("Informe número 2: "));
+      let operacaomatematica = prompt(
+        "Qual operação matemática você gostaria? "
+      );
+      let resultado;
+
+      if (operacaomatematica == "adição") {
+        resultado = numero1 + numero2;
+        alert("Sua soma é: " + resultado);
+      } else if (operacaomatematica == "subtração") {
+        resultado = numero1 - numero2;
+        alert("Sua subtração é: " + resultado);
+      } else if (operacaomatematica == "divisão") {
+        resultado = numero1 / numero2;
+        alert("Sua divisão é: " + resultado);
+      } else if (operacaomatematica == "multiplicação") {
+        resultado = numero1 * numero2;
+        alert("Sua multiplicação é: " + resultado);
+      } else {
+        alert("Informe a operação ou número desejado");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Faça um programa que peça ao usuario o seu usuario o salario dele.`
+      //salários até R$ 280,00: aumento de 20%`
+      //salários entre R$ 280,00 e R$ 700 00 : aumento de 15%`
+      //salários maior que  R$ 700,00 : aumento de 10%`
+
+      //salário antes do reajuste;
+      //percentual de aumento aplicado;
+      //valor do aumento;
+      //novo salário, após o aumento.
+
+      let salario = parseInt(prompt("Informe seu salário: "));
+      let aumento;
+      let salarioatual;
+
+      if (salario <= 280) {
+        aumento = (salario * 20) / 100;
+        salarioatual = salario + aumento;
+        document.write(
+          "Salário antes do reajuste: " + salario,
+          "\n, Percentual aplicado: de 20%, Valor do aumento: " + aumento,
+          "\n, Salário atual: " + salarioatual
+        );
+      } else if (salario > 280 && salario <= 700) {
+        aumento = (salario * 15) / 100;
+        salarioatual = salario + aumento;
+        document.write(
+          "Salário antes do reajuste: " + salario,
+          "Percentual aplicado: de 15%, Valor do aumento: " + aumento,
+          "Salário atual:" + salarioatual
+        );
+      } else if (salario > 700) {
+        aumento = (salario * 10) / 100;
+        salarioatual = salario + aumento;
+        document.write(
+          "Salário antes do reajuste: " + salario,
+          "\n, Percentual aplicado: de 10%, Valor do aumento: " + aumento,
+          "\n, Salário atual: " + salarioatual
+        );
+      }
+    </script>
+  </body>
+</html>

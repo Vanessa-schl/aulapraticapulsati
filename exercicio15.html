@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    >
+    <script>
+      // Faça um script para que o usuário informe 3 numeros e o programa mostre os pares de numeros.`
+      //-  Exemplo:
+      //  <br>
+      //   3 2 3 => 2 - 3 3
+      //  <br>
+      //  5 5 7 => 7 - 5 5
+
+      let numero1 = parseInt(prompt("Informe numero1: "));
+      let numero2 = parseInt(prompt("Informe numero2: "));
+      let numero3 = parseInt(prompt("Informe numero3: "));
+
+      if (numero1 == numero2) {
+        document.write('Numeros informados: ' +numero1, ' ' + numero2, ' ' + numero3, ' Numeros repetidos: ' + numero1, ' e ' + numero2);
+      } else if (numero1 == numero3) {
+        document.write('Numeros informados: ' +numero1, ' ' +numero2,' '+numero3, ' Numeros repetidos: ' + numero1, ' e ' + numero3);
+      } else if (numero2 == numero3) {
+        document.write('Numeros informados: ' +numero1,' '+numero2,' '+numero3, ' Numeros repetidos: ' + numero2, ' e ' + numero3);
+      } else {
+        alert("Não há números repetidos");
+      }
+    </script>
+  </body>
+</html>
