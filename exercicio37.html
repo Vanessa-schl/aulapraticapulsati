@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ><script>
+       //Escreva um programa que verifique se todos os números são ou pares ou impares de um array.
+
+       let resposta;
+       let numeroescolhido;
+       let numeros = [];
+       let opcao =true;
+       
+
+       do {
+        numeroescolhido = parseInt(prompt('Escolha um número para saber se é par ou impar: '));
+        numeros.push(numeroescolhido);
+        opcao = confirm('Você quer adicionar mais números?');
+        if(numeroescolhido % 2 == 0){
+            document.write(numeros, ' são pares <br>')
+        }else{
+            document.write(numeros, 'são impares')
+        }
+       }while(opcao == true);
+
+
+    </script>
+</body>
+</html>

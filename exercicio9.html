@@ -15,24 +15,26 @@
       let valor2 = parseInt(prompt("Insira número 2:"));
       let valor3 = parseInt(prompt("Insira número 3:"));
 
-      if (valor1 < valor2 && valor1 < valor3) {
-      if (valor2 < valor3) {
-        document.write("Ordem: " + valor1, " ", +valor2, " ", +valor3);
-      }} else {
-        document.write("Ordem: " + valor1, "", +valor3, "" + valor2);
+      if (valor1 == valor2 || valor1 == valor3 || valor2 == valor3) 
+      {alert("Não digitar valores iguais");
+
+      }else{
+        if(valor1 < valor2 && valor1 < valor3) {
+        if (valor2 < valor3) {
+          console.log("Ordem: " + valor1, " ", +valor2, " ", +valor3);
+        }
       }
       if (valor2 < valor1 && valor2 < valor3) {
-      if (valor1 < valor3) {
-        document.write("Ordem: " + valor2, " ", +valor1, " ", +valor3);
-      }} else {
-        document.writer("Ordem: " + valor2, "", +valor3, "" + valor1);
+        if (valor1 < valor3) {
+          console.log("Ordem: " + valor2, " ", +valor1, " ", +valor3);
+        }
       }
-      if (valor3 < valor2 && valor3 < valor1) {
-      if (valor1 < valor2) {
-        document.write("Ordem: " + valor3, " ", +valor1, " ", +valor2);
-      }} else {
-        document.writer("Ordem: " + valor3, "", +valor2, "" + valor1);
+      if (valor3 < valor1 && valor3 < valor2) {
+        if (valor2 < valor1) {
+          console.log("Ordem: " + valor3, " ", +valor2, " ", +valor1);
+        }
       }
+    }
     </script>
   </body>
 </html>
