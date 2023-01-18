@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Utilize um laço "for" para percorrer 
+        //uma string e trocar todas as letras "a" por "x" e imprimir a string modificada
+
+        let palavra = prompt("informe uma palavra: ");
+        let novapalavra = ""
+
+        for(let i= 0; i <= palavra.length; i++){
+            novapalavra = palavra.replaceAll('a','x');
+        }
+        document.write(novapalavra);
+    </script>
+</body>
+</html>

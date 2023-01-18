@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+  //Utilize um laço "for" para gerar uma contagem regressiva de 10 até 0 e imprimir cada número no console.
+        let numeros = [10,9,8,7,6,5,4,3,2,1,0];
+
+        for(let i = 0; i < numeros.length; i++){
+            if(numeros[i] <= 9){
+                numeros[i] = '0' + numeros[i]
+            }
+            console.log(numeros[i])
+        }
+    </script>
+</body>
+</html>

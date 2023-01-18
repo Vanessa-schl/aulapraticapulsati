@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Utilize um laço "for" 
+        //para criar uma pirâmide de números, onde cada linha tem um número a mais do que a linha anterior.
+
+        let numero=0;
+
+        for(let i = 1; i <=9; i++){
+            let p = Array(i + 1).join(i);
+            document.write(p);
+            document.write('<br>');
+        }
+    </script>
+</body>
+</html>
