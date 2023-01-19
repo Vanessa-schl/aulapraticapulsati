@@ -7,26 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    ><script>
-       //Escreva um programa que verifique se todos os números são ou pares ou impares de um array.
+    <script>
+      //   Escreva um programa que calcule a soma dos números impares de uma lista
 
-       let resposta;
        let numeroescolhido;
        let numeros = [];
        let opcao =true;
+       let soma = 0;
        
-
         while(opcao == true){
-        numeroescolhido = parseInt(prompt('Escolha um número para saber se é par ou impar: '));
+        numeroescolhido = parseInt(prompt('coloque numeros impares: '));
         numeros.push(numeroescolhido);
-        if(numeroescolhido % 2 == 0){
-            document.write(numeroescolhido + ' é par <br>')
+        if(numeroescolhido % 2 == 1){
+            soma = soma + numeroescolhido
         }else{
-            document.write(numeroescolhido + 'é impar')
+            document.write('escolha somente numeros impares')
         }opcao = confirm('Você quer adicionar mais números?');
-       }
-
-       
+    } document.write('soma de numéros impares: ' + soma)
+    
     </script>
 </body>
 </html>

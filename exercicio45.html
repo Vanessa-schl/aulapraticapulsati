@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // Escreva um programa que verifique quantos números são positivos e quantos são negativos em um array.
+
+        let numero, negativos = 0, positivos = 0;
+
+        do{
+            numero = parseInt(prompt('informa numeros negativos e positivos:'));
+            if(numero>0){
+                positivos++;
+            }if(numero < 0){
+                negativos++
+            }
+
+        }while(numero != 0)
+
+        document.write('numeros positivos: ' + positivos, ', numeros negativos: ' + negativos);
+
+    </script>
+</body>
+</html>
