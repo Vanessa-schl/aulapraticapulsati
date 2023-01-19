@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //Escreva um programa que gere um numero aleatório e some até que essa soma dos números passe de 200
+      //Escreva um programa que gere um numero aleatório e some até que essa soma dos números passe de 200
 
-        let numero = Math.random(0,300);
-        let soma;
+      let soma = 0;
+      let num = 0;
 
-        soma = soma + numero
-        alert('soma é: ' + soma)
+      do {
+        soma = soma + parseInt(Math.random() * 50);
+
+        document.write("Numeros gerados: " + soma + "<br>");
+      } while (soma <= 200);
+
+      document.write("TOTAL: " + soma);
     </script>
-</body>
+  </body>
 </html>

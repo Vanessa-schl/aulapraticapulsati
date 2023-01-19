@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Escreva um programa que calcule a soma dos dígitos de um número
+
+      let numero = parseInt(prompt("insira um numero: "));
+      let soma = 0;
+
+      while(numero != 0){
+        soma += numero % 10;
+        numero = numero / 10;
+      }
+      document.write('<br> Quantidade de digitos do número: ' + parseInt(soma));
+    
+    </script>
+  </body>
+</html>

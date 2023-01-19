@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Escreva um programa que encontre o número mais frequente em uma lista.
+
+      let entrada = ["1", "2", "3", "5", "5", "1", "5", "5", "8", "3"];
+
+      let maior = null;
+      let ocorrenciasMaior = -1;
+
+      for (let i = 0; i < entrada.length; i++) {
+        let ocorrencias = 1;
+        for (let t = i + 1; t < entrada.length; t++)
+          if (entrada[i] == entrada[t]) ocorrencias++;
+
+        if (ocorrencias > ocorrenciasMaior) {
+          maior = entrada[i];
+          ocorrenciasMaior = ocorrencias;
+        }
+      }
+        console.log(+ ocorrenciasMaior + " ocorrências")
+    </script>
+  </body>
+</html>

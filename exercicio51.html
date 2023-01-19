@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Escreva um programa que calcule a soma dos numeros porém somente dos numeros que nao forem inteiros
+
+      let numberList = [];
+      let chosenNumber;
+      let opcao = true;
+      let soma = 0;
+
+      do {
+        chosenNumber = Number(prompt("Digite um numero"));
+
+        numberList.push(chosenNumber);
+
+        opcao = confirm("Você quer continuar?");
+      } while (opcao == true);
+
+      for (let i = 0; i <= numberList.length - 1; i++) {
+        if (Number.isInteger(numberList[i]) != true) {
+          soma += chosenNumber;
+
+          document.write("Numero decimal digitado " + chosenNumber + "<br>");
+        }
+      }
+
+      document.write("<br>A soma dos números não inteiros é de " + soma);
+    </script>
+  </body>
+</html>

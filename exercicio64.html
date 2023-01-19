@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Escreva um programa que verifique se uma string é um pangrama.
+
+      function pangrama(frase) {
+        //Remova espaços e deixe tudo em lowercase
+
+        frase = frase.replace(/ /g, "").toLowerCase();
+
+        //Crie um array de todas as letras do alfabeto em lowercase
+
+        const alfabeto = "abcdefghijklmnopqrstuvwyxz".split("");
+
+        //Percorrer o alfabeto e checar se todas as letras estão presentes na frase
+
+        for (let i = 0; i < alfabeto.length; i++) {
+          if (!frase.includes(alfabeto[i])) {
+            return false;
+          }
+        }
+
+        //Se todas letras estão presentes, retorne true
+
+        return true;
+      }
+
+      //Teste as frases
+
+      document.write(pangrama("The quick brown fox jumps over a lazy dog"));
+
+      document.write(pangrama("Não é pangrama"));
+    </script>
+  </body>
+</html>

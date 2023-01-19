@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Escreva um programa que encontre o número mais próximo de um dado número em uma lista.
+
+        let lista = [1,6,15,7,8];
+
+        function maisproximo(x) {
+    return lista.reduce((best, current) => {
+        return (current >= x && (!best || current < best))
+            ? current
+            : best;
+    }, undefined);
+}
+
+console.log(maisproximo(5));
+console.log(maisproximo(10));
+    </script>
+</body>
+</html>
