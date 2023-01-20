@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //uma eleição existem três candidatos. Faça um programa que peça o
+      // número total de eleitores. Peça para cada eleitor votar
+      // e ao final mostrar o número de votos de cada candidato.
+
+      let voto1 = 0;
+      let voto2 = 0;
+      let voto3 = 0;
+      let eleitores = parseInt(prompt("informa a quantidade de eleitores: "));
+
+      for (let index = 0; index < eleitores; index++) {
+        let voto = parseInt(prompt('Digite 1, 2 ou 3, para o eleitor escolher o candidato'));
+        if(voto == 1){
+            voto1 += 1
+        }else if(voto == 2){
+            voto2 += 1
+        }else if(voto == 3){
+            voto3 += 1
+        }
+      }
+      document.write('candidato 1 recebeu: ' + voto1, ' votos <br>');
+      document.write('candidato 2 recebeu: ' + voto2, ' votos <br>');
+      document.write('candidato 3 recebeu: ' + voto3, " votos <br>");
+    </script>
+  </body>
+</html>

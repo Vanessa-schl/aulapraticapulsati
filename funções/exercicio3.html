@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Peça ao usuário para digitar várias idades.
+      // Exiba quantas pessoas são maior de idade (18 anos)
+      //  e quantas são menores. COM UMA FUNÇÃO QUE VERIFICA
+      //  E RETORNA SE É MAIOR OU MENOR DE IDADE
+
+      let idade;
+      let numeros = [];
+      let opcao = true;
+      let soma = 0;
+      let media = 0;
+      let contador1 = 0;
+      let contador2 = 0;
+
+      do {
+        idade = parseInt(prompt("coloque idades: "));
+        numeros.push(idade);
+        opcao = confirm("quer adicionar mais idades?");
+      } while (opcao == true);
+      function verificar() {
+        for (let index = 0; index < numeros.length; index++) {
+          if (numeros[index] < 18) {
+            contador1++;
+          }
+          if (numeros[index] >= 18) {
+            contador2++;
+          }
+        }
+      }
+      verificar();
+      document.write("<br> pessoas maiores de idade: " + contador2);
+      document.write("<br> pessoas menores de idade: " + contador1);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //O Departamento Estadual de Meteorologia lhe contratou para desenvolver
+      //um programa que leia as um conjunto de 5 de temperaturas, e informe ao
+      //final a menor e a maior temperaturas informadas, bem como a média
+      //das temperaturas.
+
+      let graus = [-10, -8, 0, 1, 2, 5, -2, -4];
+      let minima = 999;
+      let maxima = -999;
+      let media = 0;
+      let soma = 0;
+
+      for (let index = 0; index < graus.length; index++) {
+        if (graus[index] < minima) {
+          minima = graus[index];
+        }
+        if (graus[index] > maxima) {
+          maxima = graus[index];
+        }soma += graus[index];
+      }
+      media = (soma)/graus.length;
+      document.write("temperatura maxima = " + maxima);
+      document.write("temperatura minima = " + minima);
+      document.write("média da temperatura: " + media);
+    </script>
+  </body>
+</html>

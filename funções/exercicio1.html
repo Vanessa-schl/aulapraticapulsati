@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    >
+    <script>
+          //Crie um programa onde o usuário
+         // informa 2 numeros e você mostra as operações de soma,
+         // subtração, multiplicação e divisão
+      //OBS: Criar uma Função unica, que recebe qual a operação via parametro
+      //e assim mostrar na tela.
+
+      let numero1 = parseInt(prompt('Informe numero 1:'));
+      let numero2 = parseInt(prompt('Informe numero 2: '));
+      let operacao = prompt('Informe a operação que deseja fazer: +, -, x ou /');
+      let resultado = 0;
+
+      if(operacao == '+'){
+          resultado = numero1 + numero2
+      }
+      else if(operacao == '-'){
+          resultado = numero1 - numero2
+      }
+      else if(operacao == 'x'){
+          resultado = numero1 * numero2
+      }
+      else if(operacao =='/'){
+          resultado = numero1/numero2
+      }
+      else{
+         prompt("informe um numero válido")
+      }
+      document.write('resultado da operação: ' + resultado)
+
+    </script>
+  </body>
+</html>

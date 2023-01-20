@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //crie um programa que pergunta ao usuário se ele deseja converter
+      //  uma temperatura de grau Celsius para Farenheit ou vice-versa.
+      // Para cada opção, crie uma função. E depois mostre o resultado
+      //   da conversão
+
+      let temperatura = parseInt(
+        prompt("coloque o numero da temperatura para ser convertido")
+      );
+      let graus = prompt("escolha para celsius ou farenheit");
+      let c;
+      let f;
+
+      function celsius() {
+        if (graus == "celsius") {
+          c = (temperatura - 32) / 1.8;
+          document.write("conversão para celsius: " + c)
+        }
+      }
+      function farenheit() {
+        if (graus == "farenheit") {
+          f = temperatura * 1.8 + 32;
+          document.write('e conversão para farenheit:' + f);
+        }
+      }
+
+      celsius();
+      farenheit();
+      
+    </script>
+  </body>
+</html>

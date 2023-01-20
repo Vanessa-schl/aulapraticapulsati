@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Peça para o usuário informar N numeros e adicione eles em
+      //  uma lista depois com uma função verifique cada numero se ele
+      // é par e retorne ao final quantos numeros são pares e quantos
+      //  são impares
+
+      let numero;
+      let numeros = [];
+      let opcao = true;
+      let contador1 = 0;
+      let contador2 = 0;
+
+      do {
+        numero = parseInt(prompt("coloque numeros: "));
+        numeros.push(numero);
+        opcao = confirm("quer adicionar mais numeros?");
+      } while (opcao == true);
+      
+      function verificar() {
+        for (let index = 0; index < numeros.length; index++) {
+          if (numeros[index] % 2 == 0) {
+            contador1++;
+          }
+          if (numeros[index] % 2 != 0) {
+            contador2++;
+          }
+        }
+      }
+      verificar();
+      document.write(numeros+"<br>");
+      document.write("numeros pares: " + contador1+"<br>");
+      document.write(" numeros impares: " + contador2);
+    </script>
+  </body>
+</html>
