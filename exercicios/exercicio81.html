@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Escreva um programa que calcule a variância dos valores de uma matriz
+
+      function variance(a, n) {
+        // Compute mean (average of elements)
+        let sum = 0;
+        for (var i = 0; i < n; i++) {
+          sum += a[i];
+        }
+        let mean = sum / n;
+        // Compute sum squared
+        // differences with mean.
+        let sqDiff = 0;
+        for (let i = 0; i < n; i++) {
+          sqDiff += (a[i] - mean) * (a[i] - mean);
+        }
+        return sqDiff / n;
+      }
+      function standardDeviation(arr, n) {
+        return Math.sqrt(variance(arr, n));
+      }
+      // Driver Code
+      let arr = [
+        [2,3,4],
+        [3,5,6],
+        [2,6,8],
+    ]
+      let n = arr.length;
+      document.write("Variancia: " + variance(arr, n) + "<br>");
+      document.write(
+        "Standard Deviation: " + standardDeviation(arr, n).toFixed(3)
+      );
+    </script>
+  </body>
+</html>

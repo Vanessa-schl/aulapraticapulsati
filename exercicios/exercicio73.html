@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Escreva um programa que encontre o maior valor em uma matriz.
+
+      let matriz = [
+        [5, 2, 3],
+        [5, 8, 9],
+        [9, 3, 5],
+      ];
+
+      let maiorNumero = 0;
+
+      matriz.forEach(function (num) {
+        num.forEach((numero) => {
+          if (numero > maiorNumero) {
+            maiorNumero = numero;
+          }
+        });
+      });
+
+      document.write(maiorNumero);
+    </script>
+  </body>
+</html>

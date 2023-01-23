@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    >
+    <script>
+      //1.Crie um programa que peça para o usuário informar uma sequencia de numeros,------------
+      //2.e depois pegue o maior numero da lista divida por 2
+      //3.e verifique se esse número existe na lista de valores informados
+
+      let numeros = [5, 9, 6, 4, 10, 15, 30];
+      let maiorvalor;
+      let divisao;
+
+      maiorvalor = Math.max(...numeros);
+      divisao = maiorvalor / 2;
+      console.log(numeros.includes(divisao));
+      
+      document.write(
+        "maior valor é: " + maiorvalor,
+        " maior valor dividido por 2: " + divisao
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    >
+    <script>
+      // Escreva um programa que calcule a variância dos valores de cada linha de uma matr
+
+      function somaLinhas(matriz) {
+        let soma = [];
+        let soma2 = 0;
+        let cont = 0;
+        for (let i = 0; i < matriz.length; i++) {
+          soma[i] = matriz[i].reduce((a, b) => a + b);
+
+          for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[i].length; j++) {
+              soma2 += soma[i];
+              cont++;
+            }
+          }
+
+          let media = soma2 / cont;
+          let variancia = 0;
+          for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[i].length; j++) {
+              variancia += Math.pow(soma2 - media, 2);
+            }
+          }
+          return variancia / cont;
+        }
+      }
+
+      let matriz = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      document.write(somaLinhas(matriz));
+    </script>
+  </body>
+</html>

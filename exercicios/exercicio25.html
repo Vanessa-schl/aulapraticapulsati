@@ -10,44 +10,30 @@
     <script>
       //Escreva um código que verifica se um número é primo ou não e exibe a mensagem correspondente.
 
-      let numero = parseInt(
-        prompt("Escreva um número para verificar se ele é primo:")
-      );
-      let primo = true;
-
-      for(let i = 1; i < numero; let++){
-        if(numero % i === 0 && )
+      let numero = parseInt(prompt("Insira um número: "));
+      let ehPrimo = true;
+      if (numero <= 1) {
+        console.log(numero + " não é um número primo.");
+      } else {
+        for (let i = 2; i < numero; i++) {
+          if (numero % i === 0) {
+            ehPrimo = false;
+            break;
+          }
+        }
+        if (ehPrimo) {
+          console.log(numero + " é um número primo.");
+        } else {
+          console.log(numero + " não é um número primo.");
+        }
       }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        for (let i = 1; i < numero; i++) {
-          if (numero % i === 0 ) {
-            primo = false;
-          } 
-        }
-          if (primo == true) {
-            document.write("numero é primo");
-          } else if (primo == false) {
-            document.write("numero não é primo");
-          }
-
-      
+      //  O código pede ao usuário para inserir um número e, em seguida,
+      // verifica se esse número é primo      //   ou não. Ele inicializa uma variável ehPrimo
+      //  como verdadeira (true) e usa um loop para verificar se      //   o número é divisível
+      //  por algum número entre 2 e ele mesmo. Se for divisível, significa que o número
+      //    não é primo e a variável ehPrimo é definida como falsa (false).
+      //Depois, o código verifica o valor      //    da variável ehPrimo e exibe a mensagem correspondente.
     </script>
   </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Escreva um programa que implemente o algoritmo de busca binária em uma lista ordenada
+
+
+      let array = [];
+      let contagem = 0;
+      let numeroAdvinhar = (Math.random() * 100).toFixed(0);
+
+      for (let i = 1; i <= 100; i++) {
+        contagem = contagem + i;
+        array.push(i);
+      }
+
+      let tentativaDeAcerto = 0;
+      let limiteExclusao;
+
+      function atualizarArrayAbaixo(tentativaDA) {
+        limite = array.indexOf(tentativaDA);
+        for (let i = 0; i <= limite; i++) {
+          array.splice(0, 1);
+        }
+        alert(
+          `O número a ser advinhado é maior que ${tentativaDA}. \n ${array}  `
+        );
+      }
+
+      function atualizarArrayAcima(tentativaDA) {
+        limite = array.indexOf(tentativaDA);
+        for (let i = array.length; i >= limite; i--) {
+          array.splice(limite, 1);
+        }
+        alert(
+          `O número a ser advinhado é menor que ${tentativaDA}. \n ${array} `
+        );
+      }
+
+      while (tentativaDeAcerto != numeroAdvinhar) {
+        tentativaDeAcerto = parseInt(
+          prompt("Tente acertar o número escolhido.\n" + array)
+        );
+        if (tentativaDeAcerto == numeroAdvinhar) {
+          document.write(
+            `Você acertou, o número escolhido é o ${numeroAdvinhar}`
+          );
+          break;
+        } else {
+          if (tentativaDeAcerto < numeroAdvinhar) {
+            atualizarArrayAbaixo(tentativaDeAcerto);
+          }
+          if (tentativaDeAcerto > numeroAdvinhar) {
+            atualizarArrayAcima(tentativaDeAcerto);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+
+    </script>
+  </body>
+</html>
