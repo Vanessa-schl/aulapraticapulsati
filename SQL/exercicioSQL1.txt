@@ -1,0 +1,59 @@
+--1.Faça um select (query) que traga todos os dados das pessoas
+
+SELECT * FROM vane_usuarios;
+
+--2. Faça um select (query) que traga somente o nome e a data de nascimento das pessoas
+
+SELECT nome, data_nascimento FROM VANE_USUARIOS;
+
+--3. Faça um select (Query) que traga somente as pessoas aonde o email contenha '@gmail.com'
+
+SELECT nome, email FROM VANE_USUARIOS WHERE email LIKE '%gmail.com%';
+
+--4.Faça um select (Query) que traga somente as pessoas onde o nome seja Gael
+
+SELECT nome FROM VANE_USUARIOS WHERE NOME = 'GAEL';
+
+--5.Faça um select (Query) que traga somente as pessoas nascidas depois dos anos 2000
+
+SELECT data_nascimento FROM VANE_USUARIOS WHERE data_nascimento >= '01/01/2000';
+
+-- 6. Faça um select (Query) que traga somente as pessoas nascidas antes dos anos 1999
+
+SELECT data_nascimento FROM VANE_USUARIOS WHERE data_nascimento <= '31/12/1999';
+
+-- 7. Faça um select (Query) que traga todas as pessoas onde nasceram no dia 12/12/2000 OU o nome contenha M em qualquer lugar da palavra
+
+SELECT * FROM VANE_USUARIOS WHERE nome LIKE '%M%' or nome LIKE '%m%' or data_nascimento = '12/12/2000';
+
+-- 8. Faça um select (Query) que traga a pessoa que tenha um id igual a 33
+
+SELECT * FROM VANE_USUARIOS WHERE id = 33;
+
+--9. Faça um select (Query) onde traga o id e a data de nascimento das pessoas onde o nome termine 
+--com O OU o email da pessoa contenha @outlook.com ou a data de nascimento esteja em 10/07/1987 ou 26/07/2022
+
+SELECT id, data_nascimento, nome, email FROM VANE_USUARIOS WHERE nome LIKE '%O' OR nome LIKE '%o'
+OR email LIKE '%outlook.com%' 
+OR data_nascimento = '10/07/1987' 
+OR data_nascimento = '26/07/2022'; 
+
+--10. Faça um select (Query) onde traga o email das pessoas que terminem com I
+
+SELECT id, nome, email FROM VANE_USUARIOS WHERE nome like '%i' or nome like '%I';
+
+--11. Faça um select (Query) onde traga qual a maior data de nascimento onde o email contenha @hotmail.com
+
+SELECT MAX(data_nascimento) FROM VANE_USUARIOS WHERE email LIKE '%hotmail.com%';
+
+--12. Faça um select (Query) onde traga a menor data de nascimento onde o email contenha @outlook.com
+
+SELECT MIN(data_nascimento) FROM VANE_USUARIOS WHERE email LIKE '%outlook.com%';
+
+--13.Faça um select (Query) onde traga a idade da pessoa, data de hoje menos a data de nascimento DATEDIFF(day, nascimento, hoje) /365
+
+SELECT TRUNC((sysdate - TO_DATE('22/01/2003', 'DD/MM/YYYY'))/365) FROM DUAL;
+
+OU
+
+ SELECT NOME, TRUNC((SYSDATE - DATA_NASCIMENTO) / 365) AS IDADE FROM VANE_USUARIOS;
