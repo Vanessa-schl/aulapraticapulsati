@@ -1,0 +1,43 @@
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (1,'VANESSA','SCHLEMPER',TO_DATE('22/01/2003', 'DD/MM/YYYY'), '949.401.878-88', '26.932.767-8','2ª Travessa São João','40830-470',
+        'Salvador',3559-8259, 'desenvolvedora',1520);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (2,'Yuri','Nicolas',TO_DATE('13/01/1985', 'DD/MM/YYYY'), '590.487.106-69', '44.641.229-6','Avenida Via Férrea Sobral','78720-072',
+        'Porto Velho',2503-0730, 'mecanico',2000);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (3,'Simone','Luana',TO_DATE('11/01/1962', 'DD/MM/YYYY'), '884.650.271-02', '33.547.432-9','Rua Faustino Busarello','69306-715',
+        'Ribeirão das Neves',98814-3800, 'bibliotecaria',2560);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (4,'Lucca','Erick',TO_DATE('10/01/1978', 'DD/MM/YYYY'), '106.526.337-65', '16.453.873-2','Rua do Cruzeiro','59076-310',
+        'Toledo',3707-1301, 'pastor',2000);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (5,'Vitor','Vicente',TO_DATE('15/01/1958', 'DD/MM/YYYY'), '348.713.917-01', '49.385.409-5','Rua Antônio Lopes Filho','57072-047',
+        'Boa Vista',98427-8868, 'motorista',3000);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (6,'Diogo','Mata',TO_DATE('15/01/1994', 'DD/MM/YYYY'), '149.311.790-45', '47.097.631-7','Rua Diacuí','38780-971',
+        'Curitiba',2891-9946, 'assistente',1750);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (7,'Murilo','Gabriel',TO_DATE('05/01/1951', 'DD/MM/YYYY'), '082.360.973-15', '48.568.845-1','Rua da Capela','29144-365',
+        'Vitória',98703-9352, 'gestor',5680);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (8,'Nair','Jennifer',TO_DATE('17/01/1950', 'DD/MM/YYYY'), '955.094.910-94', '17.526.369-3','Rua das Flores','40830-470',
+        'Curitiba',3998-1518, 'coordenadora',6893);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (9,'Marcela','Silva',TO_DATE('12/01/1949', 'DD/MM/YYYY'), '189.091.003-11', '10.042.213-5','Rua Palmácia','29309-006',
+        'Teresina',98204-9316, 'professora',3210);
+        
+INSERT INTO VANESSA_FUNCIONARIOS (id,primeiro_nome,segundo_nome,data_nascimento,cpf,rg,endereco,cep,cidade,telefone,funcao,salario)
+VALUES (10,'Augusto','Moreira',TO_DATE('15/01/2005', 'DD/MM/YYYY'), '475.953.091-66', '21.665.752-0','Avenida João Ponce de Arruda','76814-014',
+        'Salvador',3714-8889, 'jogador',10000);
+
+-----------------------------------------------------------------------------------------------------------------
+
+
