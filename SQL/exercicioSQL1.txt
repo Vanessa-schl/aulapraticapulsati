@@ -40,7 +40,7 @@ OR data_nascimento = '26/07/2022';
 
 --10. Faça um select (Query) onde traga o email das pessoas que terminem com I
 
-SELECT id, nome, email FROM VANE_USUARIOS WHERE nome like '%i' or nome like '%I';
+SELECT id, nome, email FROM VANE_USUARIOS WHERE email like '%i@%' or email like '%I@%';
 
 --11. Faça um select (Query) onde traga qual a maior data de nascimento onde o email contenha @hotmail.com
 
