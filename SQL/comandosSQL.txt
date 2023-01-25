@@ -1,0 +1,59 @@
+select sum(salario) as soma_salarial, segundo_nome from vanessa_funcionarios group by segundo_nome; -- soma
+
+select avg (salario) as soma_salarial, segundo_nome from vanessa_funcionarios; -- media
+
+select min(salario); -- pegar o menor salario
+
+select max(salario); -- pegar o maior salario
+
+select count(*) from vanessa_funcionarios where cidade = 'SAO Paulo'; ---- count: conta um numero de colunas, por exemplo ali conta quantas pessoas são de sao paulo
+
+select ceil(avg(salario)); -- ceil arredonada os numeros
+
+select floor(avg(salario)); -- floor - arredonda para menos 
+
+select round(abg(salario), 2); -- round arrendonda o numero, com o dois ali vai aparecer duas casas dps da virgula, para  para o mais proximo = para 0, 0,5 ou 1
+
+select replace (cpf, '-', 'abc') from tabela; -- replace troca um local por outro. escolho a coluna, o que quero trocar, para o que vai ser trocado
+
+select replace(replace(cpf,'-','abc'), '.','') -- replace mais de um local
+
+select substr(primeiro_nome, 0, 4) from vanessa_funcionarios where id = 11; --corta o texto, para não trazer tudo. coloca a coluna, onde comeca e até onde vai.
+
+select length(primeiro_nome); --length traz o tamanho da coluna
+
+update tabela set nome = 'cupim' where id = 1; -- atualizar informacoes de uma coluna, sempre usar update, set e where.
+-- para atualizar mais de uma informação é so colocar uma vez o set = set nome = 'cupim' tipo_sanguineo = '+a'
+
+delete from tabela where id = 1; -- deletar os registros, sempre usar o where
+
+delete from tabela where tipo_sanguineo in (select tipo_sanguineo from tabela where tipo_sanguineo = '+a'); -- deleta o tipo sanguineos de todos que tem como +a, o IN é para fazer um select dentro de outro select
+
+------ criar tabela estrangeiras -------
+
+create table vane_telefone_usuarios(
+    id_telefone number primary key,
+    nr_telefone VARCHAR2(30) NOT NULL,
+    id_usuario number,
+    
+    CONSTRAINT id_usuarios_vane_fk foreign key (id_usuario) REFERENCES VANE_USUARIOS (id)
+    -- pode colocar qualquer nome na contraint.
+);
+
+insert into vane_telefone_usuarios (id_telefone,nr_telefone,id_usuario) values 
+
+
+------------------- joins ----------------
+
+select * from vane_usuarios
+select * from vane_telefone_usuarios;
+
+select u.nome, t.nr_telefone
+from vane_usuarios u
+inner join vane_telefones_usuarios t on t.id_usuario = u.id
+where u.tipo_sanguineo = '+o'
+--- trazer os registros em que os usuarios tem numeros de telefone
+-- onde tem u = é a tabela vane_usuarios e o t = é a tabela vane_telefones_usuarios
+
+left join --- traz como nulos os que não tem registro
+right join -- 
