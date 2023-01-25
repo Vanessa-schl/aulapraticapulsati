@@ -1,0 +1,54 @@
+Crie uma tabela chamada NOME_DE_VOCES_filmes A tabela deverá conter os seguintes campos 
+id, nome, descricao, data_lancamento, quantidade_vendas, pais_origem 
+Insira uns 30 registros para base de dados Deverá trazer todos os filmes com vendas maiores que 800 
+e que a descriçao contenha no meio da string "Harry Potter"
+Deverá trazer todos os filmes que o pais de origem seja Brasil ou que o nome do filme contenha Brasil
+
+    CREATE TABLE VANE_FILMES (
+   -- id, nome, descricao, data_lancamento, quantidade_vendas, pais_origem
+    id NUMBER PRIMARY KEY,
+    nome VARCHAR2(4000),
+    descricao VARCHAR2(4000),
+    data_lancamento VARCHAR2(30),
+    quantidade_venda VARCHAR2(4000),
+    pais_origem VARCHAR2(200)
+);
+
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (1, 'Escaping Nightmares','escapando pesadelos', '25/01/2015','1560','Inglaterra');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (2, 'Avoiding The Dark','evitando o escuro', '30/08/2019','560','Dubai');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (3, 'Whispers In The Void','sussurros no vazio', '05/10/2016','868','Franca');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (4, 'Call To The River','ligacao para o rio', '16/12/2010','1050','Mexico');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (5, 'Welcome To Eternity','bem vindo a eternidade com Harry Potter', '20/10/2015','269', 'Brazil');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (6, 'Binding To The Dungeons','obrigacao para a dungeon', '09/02/2008','590','Inglaterra');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (7, 'Jumping Into The Animals','pulando para os animais', '31/04/2013','801','Estados Unidos');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (8, 'Separated By The Town','separados pela cidade', '18/08/2008','6598','Bahamas');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (9, 'Vanish At The Fires','desaparecer entre os fogos', '19/01/2022','956','Michigan');
+
+INSERT INTO VANE_FILMES (id,nome,descricao,data_lancamento,quantidade_venda,pais_origem) 
+VALUES (10, 'Harry Potter','Harry Potter e a camara secreta', '08/01/2003','9852','Brazil');
+
+-- 1. Deverá trazer todos os filmes com vendas maiores que 800 e que a descriçao contenha no meio da string "Harry Potter"
+
+SELECT quantidade_venda, descricao FROM VANE_FILMES WHERE quantidade_venda >= '800' AND descricao LIKE '%Harry Potter%';
+
+--2. Deverá trazer todos os filmes que o pais de origem seja Brasil ou que o nome do filme contenha Brasil
+
+SELECT nome, pais_origem FROM VANE_FILMES WHERE pais_origem = 'Brazil' or nome LIKE '%Brazil%';

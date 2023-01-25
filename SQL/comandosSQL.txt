@@ -29,6 +29,8 @@ delete from tabela where id = 1; -- deletar os registros, sempre usar o where
 
 delete from tabela where tipo_sanguineo in (select tipo_sanguineo from tabela where tipo_sanguineo = '+a'); -- deleta o tipo sanguineos de todos que tem como +a, o IN é para fazer um select dentro de outro select
 
+drop table nome_tabela; -- excluir a tabela
+
 ------ criar tabela estrangeiras -------
 
 create table vane_telefone_usuarios(

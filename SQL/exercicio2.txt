@@ -63,7 +63,9 @@ SELECT DISTINCT primeiro_nome FROM VANESSA_FUNCIONARIOS;
 
 --6. Crie um selectonde você traga o nome e o sobrenome concatenados em uma coluna de todas as pessoas com mais de 20 anos 
 --ou que o telefone termina com 9.
-
+SELECT(primeiro_nome||''||segundo_nome) as nome_completo, data_nascimento, telefone from VANESSA_FUNCIONARIOS 
+WHERE(TRUNC((SYSDATE-data_nascimento)/365) > 20)
+or telefone like '%9';
 
 --7. Crie um select onde você traga todas as pessoas ordenadas pela função de trabalho
 
@@ -71,6 +73,7 @@ SELECT primeiro_nome,funcao FROM VANESSA_FUNCIONARIOS ORDER BY FUNCAO;
 
 --8. crie um select onde você traga a média salarial agrupada por funcao
 
+SELECT AVG(salario) as media_salarial, funcao FROM VANESSA_FUNCIONARIOS GROUP BY funcao;
 
 --9. traga todos os registros com id entre 10 e 15
 
@@ -78,6 +81,8 @@ SELECT * FROM VANESSA_FUNCIONARIOS WHERE id BETWEEN '10' AND '15';
 
 --10. selecione apenas os campos de id cpf, rg e traga somente os registros em que o o rg e o cpf 
 --nao começem com os digitos do id da linha.
+
+SELECT ID,RG,CPF FROM VANESSA_FUNCIONARIOS WHERE SUBSTR(RG, 0,1) <> ID AND SUBSTR(CPF, 0,1) <> ID
 
 COMMIT;
 

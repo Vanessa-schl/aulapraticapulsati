@@ -1,0 +1,207 @@
+CREATE TABLE VANE_PAISES(
+    pais_id NUMBER PRIMARY KEY,
+    nome_pais VARCHAR2(4000) NOT NULL
+);
+
+CREATE TABLE VANE_ESTADOS(
+    estado_id NUMBER PRIMARY KEY,
+    nome_estado VARCHAR2(4000) NOT NULL,
+    id_pais number,
+    
+    CONSTRAINT fk_id_pais FOREIGN KEY (id_pais) REFERENCES VANE_PAISES (pais_id)
+);
+
+CREATE TABLE VANE_CIDADES (
+    cidade_id NUMBER PRIMARY KEY,
+    nome_cidade VARCHAR2(4000) NOT NULL,
+    id_estado NUMBER,
+    
+    CONSTRAINT fk_id_estado FOREIGN KEY (id_estado) REFERENCES VANE_ESTADOS (estado_id)
+);
+
+CREATE TABLE VANE_PESSOAS (
+    pessoa_id NUMBER PRIMARY KEY,
+    nome_pessoa VARCHAR2(4000) NOT NULL,
+    email_pessoa VARCHAR2(4000),
+    data_nascimento DATE NOT NULL,
+    id_cidade NUMBER,
+    
+    CONSTRAINT fk_id_cidade FOREIGN KEY (id_cidade) REFERENCES VANE_CIDADES (cidade_id)
+);
+
+INSERT INTO VANE_PAISES(pais_id, nome_pais) VALUES (1, 'Brasil');
+INSERT INTO VANE_PAISES(pais_id, nome_pais) VALUES (2, 'Portugal');
+INSERT INTO VANE_PAISES(pais_id, nome_pais) VALUES (3, 'Argentina');
+
+
+INSERT INTO VANE_ESTADOS(estado_id, nome_estado, id_pais) VALUES (1, 'Santa Catarina', 1);
+INSERT INTO VANE_ESTADOS(estado_id, nome_estado, id_pais) VALUES (2, 'Lisboa', 2);
+INSERT INTO VANE_ESTADOS(estado_id, nome_estado, id_pais) VALUES (3, 'Paraná', 1);
+INSERT INTO VANE_ESTADOS(estado_id, nome_estado, id_pais) VALUES (4, 'Chaco', 3);
+
+INSERT INTO VANE_CIDADES(cidade_id,nome_cidade,id_estado) VALUES (1,'Blumenau', 1);
+INSERT INTO VANE_CIDADES(cidade_id,nome_cidade,id_estado) VALUES (2,'Sintra', 2);
+INSERT INTO VANE_CIDADES(cidade_id,nome_cidade,id_estado) VALUES (3,'Curitiba', 3);
+INSERT INTO VANE_CIDADES(cidade_id,nome_cidade,id_estado) VALUES (4,'Resistencia', 4);
+
+INSERT INTO VANE_PESSOAS(pessoa_id,nome_pessoa,email_pessoa,data_nascimento,id_cidade)
+VALUES(1,'Vanessa','vane.sch@gmail.com', TO_DATE('22/01/2003', 'DD/MM/YYYY'), 1);
+
+INSERT INTO VANE_PESSOAS(pessoa_id,nome_pessoa,email_pessoa,data_nascimento,id_cidade)
+VALUES(2,'Julia','juliaa@hotmail.com', TO_DATE('15/08/1996', 'DD/MM/YYYY'), 3);
+
+INSERT INTO VANE_PESSOAS(pessoa_id,nome_pessoa,email_pessoa,data_nascimento,id_cidade)
+VALUES(3,'Pedro','pedro1520@outlook.com', TO_DATE('09/04/2006', 'DD/MM/YYYY'), 2);
+
+INSERT INTO VANE_PESSOAS(pessoa_id,nome_pessoa,email_pessoa,data_nascimento,id_cidade)
+VALUES(4,'Matheus','matheussilva@outlook.com', TO_DATE('29/02/1994', 'DD/MM/YYYY'), 4);
+
+INSERT INTO VANE_PESSOAS(pessoa_id,nome_pessoa,email_pessoa,data_nascimento,id_cidade)
+VALUES(5,'Ana','aninha@gmail.com', TO_DATE('12/12/2000', 'DD/MM/YYYY'), 3);
+
+INSERT INTO VANE_PESSOAS(pessoa_id,nome_pessoa,email_pessoa,data_nascimento,id_cidade)
+VALUES(6,'Eduardo','edu.ardo@hotmail.com', TO_DATE('03/11/2004', 'DD/MM/YYYY'), 2);
+
+--1. `Fazer uma consulta (Query), onde traga o email da pessoa, e de qual Cidade essa pessoa pertence.`
+
+SELECT vp.nome_pessoa, vp.email_pessoa, vp.id_cidade, vc.nome_cidade FROM VANE_PESSOAS vp
+INNER JOIN VANE_CIDADES vc
+ON vp.id_cidade = vc.cidade_id;
+
+--2. Fazer uma consulta (Query), onde traga quantas pessoas estão cadastradas 
+--em cada pais`
+
+
+SELECT vpa.nome_pais, COUNT(vp.pessoa_id) as soma
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+GROUP BY vpa.nome_pais;
+
+
+-- 3. `Fazer um consulta (Query), onde traga quantas pessoas estão cadastradas em cada cidade`
+
+SELECT vc.nome_cidade, COUNT(vp.pessoa_id) as soma
+FROM VANE_CIDADES vc
+INNER JOIN VANE_PESSOAS vp
+ON vp.id_cidade = vc.cidade_id
+GROUP BY vc.nome_cidade;
+
+--4. Fazer uma consulta (Query), onde traga quantas pessoas estão cadastradas em cada estado
+
+Select ve.nome_estado, COUNT(vp.pessoa_id) as soma
+FROM VANE_ESTADOS ve
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+GROUP BY ve.nome_estado;
+
+--5 Fazer uma consulta (Query), onde traga qual é o nome e o código dos paises cadastrados.`
+
+SELECT pais_id, nome_pais FROM VANE_PAISES;
+
+--6 `Fazer uma consulta (Query),
+--onde traga todas as pessoas que moram no pais com Id 3 e que nasceram depois do dia 01/01/2000 e que o email contenha @gmail.com`
+
+SELECT nome_pessoa, id_pais 
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE (pais_id = 3)
+AND (data_nascimento >= '01/01/2000') 
+AND (email_pessoa LIKE '%gmail.com%');
+
+--7 `Fazer uma consulta (Query), onde traga a pessoa mais velha do pais com id 1`
+
+SELECT MIN(data_nascimento)
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE(pais_id = 1);
+
+--8. Fazer uma consulta (Query), onde traga o nome e o email pessoa mais nova do estado Rio grande do su
+
+SELECt MAX(data_nascimento)
+FROM VANE_ESTADOS ve
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id;
+
+--9. `Fazer uma consulta (Query), onde traga o nome da pessoa, nome da cidade, 
+--nome do estado, e nome do pais das pessoas com mais de 30 anos UTILIZAR DATEDIFF NO WHERE`
+
+SELECT vp.nome_pessoa, vc.nome_cidade, ve.nome_estado, vpa.nome_pais
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE (TRUNC((SYSDATE - data_nascimento) /365) > 30)
+
+--10 `Fazer uma consulta (Query), onde traga o nome da pessoa, nome da cidade, nome do estado,
+--e nome do pais das pessoas com menos de 20 anos UTILIZAR DATEDIFF NO WHERE`
+
+
+SELECT vp.nome_pessoa, vc.nome_cidade, ve.nome_estado, vpa.nome_pais
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE (TRUNC((SYSDATE - data_nascimento) /365) < 20);
+
+
+--11. `Fazer uma consulta (Query), onde traga o nome da pessoa, o email da pessoa, e o Estado que essa pessoa mora.`
+
+SELECT nome_pessoa, email_pessoa, nome_estado
+FROM VANE_ESTADOS ve
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+
+--12. Fazer uma consulta (Query), onde traga todas as pessoas que terminam com A no brasil
+
+SELECT vp.nome_pessoa, vpa.nome_pais
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE nome_pessoa LIKE '%a' and nome_pais = 'Brasil';
+
+--13. Fazer uma consulta (Query), onde traga a pessoa mais velha e a pessoa mais nova dentre todos os paises
+
+SELECT MAX(data_nascimento) as pessoaNova, MIN(data_nascimento) as pessoaVelha
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id;
+
+--14. Fazer uma consulta (Query), onde traga as pessoas que nao forem de Santa catarina, Sao paulo e Texas
+
+SELECT vp.nome_pessoa, ve.nome_estado
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE nome_estado <> 'Santa Catarina' and nome_estado <> 'São Paulo' and nome_estado <> 'TEXAS';
+
+--15. Fazer uma consulta (Query), onde traga todas as pessoas do japão e que tenham mais de 35 anos`
+
+SELECT vp.nome_pessoa, vpa.nome_pais
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE nome_pais = 'Japao' AND (TRUNC((SYSDATE - data_nascimento) /365) > 35);
+
+--16. Fazer uma consulta (Query), onde traga quantas pessoas no ja tem o email do outlook.
+
+SELECT COUNT(*)
+FROM VANE_PAISES vpa
+INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
+INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
+INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
+WHERE nome_pais = 'Japao' AND email_pessoa LIKE '%outlook.com%';
+
+
+ 
+
+
