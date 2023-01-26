@@ -114,12 +114,16 @@ AND (email_pessoa LIKE '%gmail.com%');
 
 --7 `Fazer uma consulta (Query), onde traga a pessoa mais velha do pais com id 1`
 
-SELECT MIN(data_nascimento)
-FROM VANE_PAISES vpa
-INNER JOIN VANE_ESTADOS ve ON ve.id_pais = vpa.pais_id
-INNER JOIN VANE_CIDADES vc ON vc.id_estado = ve.estado_id
-INNER JOIN VANE_PESSOAS vp ON vp.id_cidade = vc.cidade_id
-WHERE(pais_id = 1);
+SELECT data_nascimento, nome_pessoa from VANE_PAISES
+INNER JOIN VANE_estados ON VANE_estados.id_pais = VANE_paises.pais_id
+INNER JOIN VANE_cidades ON VANE_cidades.id_estado = VANE_estados.estado_id
+INNER JOIN adri_pessoas ON VANE_pessoas.id_cidade = VANE_cidades.cidade_id
+WHERE (ID_PAIS = 1) 
+and data_nascimento = (SELECT min(data_nascimento) from VANE_PAISES
+INNER JOIN VANE_estados ON adri_estados.id_pais = VANE_paises.pais_id
+INNER JOIN VANE_cidades ON adri_cidades.id_estado = VANE_estados.estado_id
+INNER JOIN VANE_pessoas ON adri_pessoas.id_cidade = VANE_cidades.cidade_id
+WHERE (ID_PAIS = 1))
 
 --8. Fazer uma consulta (Query), onde traga o nome e o email pessoa mais nova do estado Rio grande do su
 

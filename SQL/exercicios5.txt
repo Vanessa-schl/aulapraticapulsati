@@ -1,0 +1,194 @@
+ CREATE TABLE VANE_PRODUTO(
+    id_produto NUMBER PRIMARY KEY,
+    nome_produto VARCHAR2(255)NOT NULL,
+    descricao_produto VARCHAR(4000)NOT NULL,
+    codigo_produto VARCHAR2(20)NOT NULL,
+    data_cadastro DATE
+);
+
+CREATE TABLE VANE_CLIENTE(
+    id_cliente NUMBER PRIMARY KEY,
+    nome VARCHAR2(255)NOT NULL,
+    data_nascimento DATE NOT NULL,
+    cpf VARCHAR2(14)NOT NULL,
+    cidade VARCHAR2(20)NOT NULL);
+
+CREATE TABLE VANE_VENDAS (
+    id_venda NUMBER PRIMARY KEY,
+    data_venda DATE DEFAULT SYSDATE,
+    fk_id_cliente NUMBER,fk_id_produto NUMBER,
+    FOREIGN KEY (fk_id_cliente) REFERENCES VANE_CLIENTE(id_cliente),
+    FOREIGN KEY (fk_id_produto) REFERENCES VANE_PRODUTO(id_produto)
+);
+
+CREATE SEQUENCE id_produto
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+    
+CREATE SEQUENCE id_cliente
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE id_venda
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+INSERT INTO VANE_PRODUTO(id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro)
+VALUES (id_produto.nextval, 'Geladeira', 'Geladeira eletrica', '10', TO_DATE('26/01/2016', 'DD/MM/YYYY'));
+
+INSERT INTO VANE_PRODUTO(id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro)
+VALUES (id_produto.nextval, 'Fogao', 'Fogao eletrica', '20', TO_DATE('15/09/2020', 'DD/MM/YYYY'));
+
+INSERT INTO VANE_PRODUTO(id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro)
+VALUES (id_produto.nextval, 'Freezer', 'Freezer congelante', '30', TO_DATE('05/02/2021', 'DD/MM/YYYY'));
+
+INSERT INTO VANE_PRODUTO(id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro)
+VALUES (id_produto.nextval, 'Microondas', 'Microondas 200 volts', '40', TO_DATE('29/05/2013', 'DD/MM/YYYY'));
+
+INSERT INTO VANE_PRODUTO(id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro)
+VALUES (id_produto.nextval, 'Celular', 'Celular com 264GB', '50', TO_DATE('30/11/2022', 'DD/MM/YYYY'));
+
+INSERT INTO VANE_PRODUTO(id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro)
+VALUES (id_produto.nextval, 'Forno', 'Forno eletrico', '60', TO_DATE('03/09/2018', 'DD/MM/YYYY'));
+
+
+
+
+INSERT INTO VANE_CLIENTE(id_cliente, nome, data_nascimento, cpf, cidade)
+VALUES (id_cliente.nextval, 'Vanessa', TO_DATE('22/01/2003','dd/mm/yyyy'), '441.280.216-79', 'Blumenau');
+
+INSERT INTO VANE_CLIENTE(id_cliente, nome, data_nascimento, cpf, cidade)
+VALUES (id_cliente.nextval, 'Vitória', TO_DATE('07/01/1999','dd/mm/yyyy'), '343.649.238-85', 'Fortaleza');
+
+INSERT INTO VANE_CLIENTE(id_cliente, nome, data_nascimento, cpf, cidade)
+VALUES (id_cliente.nextval, 'Samuel', TO_DATE('17/01/2004','dd/mm/yyyy'), '284.774.045-77', 'Blumenau');
+
+INSERT INTO VANE_CLIENTE(id_cliente, nome, data_nascimento, cpf, cidade)
+VALUES (id_cliente.nextval, 'Raul', TO_DATE('26/01/1973','dd/mm/yyyy'), '774.738.554-41', 'Barra do Piraí');
+
+INSERT INTO VANE_CLIENTE(id_cliente, nome, data_nascimento, cpf, cidade)
+VALUES (id_cliente.nextval, 'Edson', TO_DATE('10/01/1966','dd/mm/yyyy'), '591.214.698-73', 'Campo Mourão');
+
+INSERT INTO VANE_CLIENTE(id_cliente, nome, data_nascimento, cpf, cidade)
+VALUES (id_cliente.nextval, 'Mariane', TO_DATE('22/01/1953','dd/mm/yyyy'), '782.461.757-26', 'Campo Grande');
+
+
+
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('25/06/2022', 'DD/MM/YYYY'), 1, 1);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('27/02/2017', 'DD/MM/YYYY'), 2, 2);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('19/12/2018', 'DD/MM/YYYY'), 3, 3);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('15/04/2020', 'DD/MM/YYYY'), 4, 4);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('30/01/2019', 'DD/MM/YYYY'), 5, 5);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('11/11/2022', 'DD/MM/YYYY'), 6, 6);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('13/08/2016', 'DD/MM/YYYY'), 5, 2);
+
+INSERT INTO VANE_VENDAS (id_venda,data_venda,fk_id_cliente, fk_id_produto)
+VALUES (id_venda.nextval, TO_DATE('23/07/2022', 'DD/MM/YYYY'), 2, 3);
+
+ALTER TABLE VANE_PRODUTO ADD preço FLOAT;
+UPDATE VANE_PRODUTO SET preço = 2560 WHERE id_produto = 1;
+UPDATE VANE_PRODUTO SET preço = 1589 WHERE id_produto = 2;
+UPDATE VANE_PRODUTO SET preço = 3000 WHERE id_produto = 3;
+UPDATE VANE_PRODUTO SET preço = 1500 WHERE id_produto = 4;
+UPDATE VANE_PRODUTO SET preço = 3500 WHERE id_produto = 5;
+UPDATE VANE_PRODUTO SET preço = 3652 WHERE id_produto = 6;
+
+--1. Selecione todos os campos da tabela produto
+
+SELECT id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro FROM VANE_PRODUTO;
+
+--2. Selecione todos os campos da tabela cliente
+
+SELECT id_cliente, nome, data_nascimento, cpf, cidade FROM VANE_CLIENTE;
+
+--3. Selecione todos os campos da tabela vendas
+
+SELECT id_venda, data_venda, fk_id_cliente, fk_id_produto FROM VANE_VENDAS;
+
+--4. Selecione o nome e a descrição de todos os produtos
+
+SELECT nome_produto, descricao_produto FROM VANE_PRODUTO;
+
+--5. Selecione o nome, a data de nascimento e a cidade de todos os clientes
+
+SELECT nome, data_nascimento, cidade FROM VANE_CLIENTE;
+
+--6. Selecione a data da venda e o ID do cliente e do produto para todas as vendas
+
+SELECT data_venda, fk_id_cliente, fk_id_produto FROM VANE_VENDAS;
+
+--7. Selecione o nome do cliente e o nome do produto para todas as vendas
+
+SELECT nome, nome_produto, data_venda, fk_id_cliente, fk_id_produto FROM VANE_VENDAS vv
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente =  vv.fk_id_cliente
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto; 
+
+--8. Selecione a data de cadastro e a descrição de todos os produtos cadastrados antes de uma determinada data (vc escolhe)
+
+SELECT data_cadastro, descricao_produto FROM VANE_PRODUTO
+WHERE data_cadastro <= '01/01/2020';
+
+--9. Selecione o nome do cliente e a data de nascimento de todos os clientes com idade superior a 30 anos
+
+SELECT nome, data_nascimento FROM VANE_CLIENTE
+WHERE ((SYSDATE - data_nascimento)/365) > 30;
+
+--10.Selecione a quantidade de vendas realizadas em cada dia
+
+SELECT COUNT(*), DATA_VENDA FROM VANE_VENDAS vv
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+GROUP BY data_venda;
+
+--11.Selecione o nome do produto e a soma dos preços de todas as vendas desse produto
+
+SELECT nome_produto, SUM(preço) FROM VANE_VENDAS vv
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+GROUP BY nome_produto;
+
+--12. Selecione o nome do cliente e o nome do produto de todas as vendas.
+
+SELECT nome, nome_produto, data_venda, fk_id_cliente, fk_id_produto FROM VANE_VENDAS vv
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente =  vv.fk_id_cliente
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto;
+
+--13. Selecione o nome do cliente, a cidade e a data de nascimento de todos os clientes que compraram um produto.
+
+SELECT vc.nome, vc.data_nascimento, vc.cidade, vp.nome_produto FROM VANE_VENDAS vv
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente =  vv.fk_id_cliente
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+WHERE nome_produto = 'Freezer';
+
+--14. Selecione o nome do produto, a descrição do produto e a quantidade vendida de todos os produtos.
+
+SELECT COUNT(*) as quantidade_vendida,nome_produto, descricao_produto FROM VANE_VENDAS vv
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+GROUP BY nome_produto, descricao_produto;
+
+--15. Selecione o nome do cliente, a cidade e o total gasto em compras pelo cliente
+
+SELECT SUM(PREÇO) as quantiade_gasta,vc.nome, vc.cidade FROM VANE_VENDAS vv
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente =  vv.fk_id_cliente
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+GROUP BY nome, cidade;
+
+

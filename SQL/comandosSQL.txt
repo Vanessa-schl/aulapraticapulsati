@@ -31,6 +31,12 @@ delete from tabela where tipo_sanguineo in (select tipo_sanguineo from tabela wh
 
 drop table nome_tabela; -- excluir a tabela
 
+-- inserir uma coluna dentro de uma tabela ja existente 
+ALTER TABLE VANE_PRODUTO ADD preço FLOAT;
+
+-- colocar as informacoes na coluna
+UPDATE VANE_PRODUTO SET preço = 2560 WHERE id_produto = 1;
+
 ------ criar tabela estrangeiras -------
 
 create table vane_telefone_usuarios(
