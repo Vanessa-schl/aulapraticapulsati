@@ -1,0 +1,327 @@
+---1.Escreva um bloco PL/SQL que exiba "Número par" se o número for par e "Número ímpar" se for ímpar.
+
+DECLARE
+    v_par NUMBER := 2;
+BEGIN
+    IF MOD(v_par, 2) = 0 THEN
+        dbms_output.put_line('NUMERO É PAR');
+    ELSE
+        dbms_output.put_line('NUMERO É IMPAR');
+    END IF;
+END;
+
+--2. Escreva um bloco PL/SQL que calcule e exiba a soma dos números pares entre 10 e 20.
+
+DECLARE
+    v_soma NUMBER := 0;
+BEGIN
+    FOR indice IN 10..20 LOOP
+        IF MOD(indice, 2) = 0 THEN
+            v_soma := v_soma + indice;
+        END IF;
+    END LOOP;
+
+    dbms_output.put_line(v_soma);
+END;
+
+--3. Escreva um bloco PL/SQL que determine e exiba se um número é primo ou não.
+
+DECLARE
+    v_n      NUMBER := 24;
+    contador NUMBER := 0;
+BEGIN
+    FOR v_i IN 1..v_n LOOP
+        IF MOD(v_n, v_i) = 0 THEN
+            contador := contador + 1;
+        END IF;
+    END LOOP;
+
+    IF contador = 2 THEN
+        dbms_output.put_line('É PRIMO');
+    ELSE
+        dbms_output.put_line('N É PRIMO');
+    END IF;
+
+END;
+
+
+
+--4.Escreva um bloco PL/SQL que calcule e exiba o fatorial de um número.
+
+DECLARE
+    numero   NUMBER := 6;
+    temp     NUMBER;
+    fatorial NUMBER := 1;
+BEGIN
+    temp := numero;
+    WHILE ( temp > 0 ) LOOP
+        fatorial := fatorial * temp;
+        temp := temp - 1;
+    END LOOP;
+
+    dbms_output.put_line('factorial of '
+                         || numero
+                         || ' is '
+                         || fatorial);
+END;
+
+--5. Escreva um bloco PL/SQL que calcule e exiba a soma dos números impares entre 1 e 100.
+
+DECLARE
+    v_soma NUMBER := 0;
+BEGIN
+    FOR indice IN 1..100 LOOP
+        IF MOD(indice, 2) = 1 THEN
+            v_soma := v_soma + indice;
+        END IF;
+    END LOOP;
+
+    dbms_output.put_line(v_soma);
+END;
+
+--6. Escreva um bloco PL/SQL que exiba a tabuada de um número.
+
+DECLARE
+
+I NUMBER := 5;
+
+BEGIN
+ FOR J IN 1..10 LOOP
+ DBMS_OUTPUT.PUT_LINE(I || ' X ' || J || ' = ' || I*J);
+ END LOOP;
+END; 
+
+--7. Escreva um bloco PL/SQL que calcule e exiba a média de uma tabela de números inteiros.
+
+
+DECLARE
+
+id_produto VANE_PRODUTO.ID_PRODUTO%type;
+v_MEDIA number :=0;
+
+BEGIN
+
+FOR R IN (SELECT ID_PRODUTO FROM VANE_PRODUTO) LOOP
+        SELECT AVG(id_produto)
+        INTO V_MEDIA 
+        FROM VANE_PRODUTO;
+        
+end loop;
+    dbms_output.put_line(V_MEDIA);
+    
+END;
+
+
+
+--8. Escreva um bloco PL/SQL que determine e exiba o maior número em uma tabela de números inteiros.
+
+
+DECLARE
+
+id_produto VANE_PRODUTO.ID_PRODUTO%type;
+v_MAXIMO number;
+
+BEGIN
+
+FOR R IN (SELECT ID_PRODUTO FROM VANE_PRODUTO) LOOP
+        SELECT MAX(id_produto)
+        INTO V_MAXIMO
+        FROM VANE_PRODUTO;
+        
+end loop;
+    dbms_output.put_line(V_MAXIMO);
+    
+END;
+
+--9.Escreva um bloco PL/SQL que determine e exiba o menor número em uma tabela de números inteiros.
+
+DECLARE
+
+id_produto VANE_PRODUTO.ID_PRODUTO%type;
+v_MINIMO number;
+
+BEGIN
+
+FOR R IN (SELECT ID_PRODUTO FROM VANE_PRODUTO) LOOP
+        SELECT MIN(id_produto)
+        INTO V_MINIMO
+        FROM VANE_PRODUTO;
+        
+end loop;
+    dbms_output.put_line(V_MINIMO);
+    
+END;
+
+--10. Escreva um bloco PL/SQL que determine e exiba a quantidade de números pares e ímpares em uma tabela de números inteiros.
+DECLARE
+
+id_produto VANE_PRODUTO.ID_PRODUTO%type;
+soma number:=0;
+soma2 number:=0;
+
+BEGIN
+
+FOR R IN (SELECT ID_PRODUTO FROM VANE_PRODUTO) LOOP
+    IF MOD(r.ID_PRODUTO, 2) = 0 THEN
+     soma := soma +1;
+    end if;
+        
+    if MOD(r.ID_PRODUTO,2) = 1 THEN
+       soma2 := soma2 + 1;
+    END IF;
+        
+end loop;
+    dbms_output.put_line(soma);
+    dbms_output.put_line(soma2);
+END;
+
+--11. Escreva um bloco PL/SQL que determine e exiba a quantidade de caracteres vogais e consoantes em uma string.;
+
+DECLARE
+
+texto VARCHAR2(50) := 'VANESSA SCHLEMPER';
+SOMAVOGAIS NUMBER := 0;
+SOMACONSOANTES NUMBER :=0;
+LETRASELECIONADA VARCHAR(200);
+
+BEGIN
+
+FOR R IN 1..LENGTH(texto) LOOP
+    LETRASELECIONADA := SUBSTR(TEXTO, R,1);
+    IF LETRASELECIONADA = 'A'
+    OR LETRASELECIONADA = 'E'
+    OR LETRASELECIONADA = 'I'
+    OR LETRASELECIONADA = 'O'
+    OR LETRASELECIONADA = 'U' THEN
+    SOMAVOGAIS := SOMAVOGAIS +1;
+    
+    ELSE 
+    SOMACONSOANTES := SOMACONSOANTES +1; 
+    END IF;
+    END LOOP;
+     dbms_output.put_line(somavogais || somaconsoantes);
+END;
+
+
+--12. Escreva um bloco PL/SQL que determine e exiba se um ano é bissexto ou não.
+
+DECLARE
+ANO NUMBER := 2023;
+BEGIN
+IF(MOD(ANO,4) = 0 AND MOD(ANO,100) != 0)OR(MOD(ANO,400)=0) THEN
+dbms_output.put_line('ANO BISSEXTO');
+ELSE
+dbms_output.put_line('ANO N É BISSEXTO');
+END IF;
+END;
+
+--13. Escreva uma procedure PL/SQL que determine e exiba se uma string é palíndrome ou não.
+DECLARE
+
+    s VARCHAR2(10) := 'abccba'; 
+    l VARCHAR2(20); 
+    t VARCHAR2(10); 
+BEGIN 
+    FOR i IN REVERSE 1..Length(s) LOOP 
+        l := Substr(s, i, 1); 
+  
+        -- here || are used for concatenation of string. 
+        t := t 
+             ||'' 
+             ||l; 
+    END LOOP; 
+  
+    IF t = s THEN 
+      dbms_output.Put_line(t 
+                           ||'' 
+                           ||' is palindrome'); 
+    ELSE 
+      dbms_output.Put_line(t 
+                           ||'' 
+                           ||' is not palindrome'); 
+    END IF; 
+END; 
+
+--14. Escreva uma função PL/SQL que determine e retorne a quantidade de caracteres vogais em uma string específica.
+
+DECLARE
+
+texto VARCHAR2(50) := 'VANESSA SCHLEMPER';
+SOMAVOGAIS NUMBER := 0;
+LETRASELECIONADA VARCHAR(200);
+
+BEGIN
+
+FOR R IN 1..LENGTH(texto) LOOP
+    LETRASELECIONADA := SUBSTR(TEXTO, R,1);
+    IF LETRASELECIONADA = 'A'
+    OR LETRASELECIONADA = 'E'
+    OR LETRASELECIONADA = 'I'
+    OR LETRASELECIONADA = 'O'
+    OR LETRASELECIONADA = 'U' THEN
+    SOMAVOGAIS := SOMAVOGAIS +1;
+    
+    END IF;
+    END LOOP;
+     dbms_output.put_line(somavogais);
+END;
+
+--15. Escreva um procedimento PL/SQL que calcule e exiba a média de uma tabela de números específica.
+
+DECLARE
+
+id_produto VANE_PRODUTO.PREÇO%type;
+v_MEDIA number :=0;
+
+BEGIN
+
+FOR R IN (SELECT PREÇO FROM VANE_PRODUTO) LOOP
+        SELECT AVG(PREÇO)
+        INTO V_MEDIA 
+        FROM VANE_PRODUTO;
+        
+end loop;
+    dbms_output.put_line(V_MEDIA);
+    
+END;
+
+--16. Escreva um procedimento PL/SQL que determine e exiba o maior e menor número em uma tabela de números específica.
+
+DECLARE
+
+id_produto VANE_PRODUTO.ID_PRODUTO%type;
+V_MAXIMA NUMBER :=0;
+V_MINIMA NUMBER := 0;
+
+BEGIN
+
+FOR R IN (SELECT ID_PRODUTO FROM VANE_PRODUTO) LOOP
+        SELECT MAX(id_produto)
+        INTO V_MAXIMA
+        FROM VANE_PRODUTO;
+
+        SELECT MIN(id_produto)
+        INTO V_MINIMA
+        FROM VANE_PRODUTO;
+    
+        
+end loop;
+    dbms_output.put_line(V_MAXIMA);
+    dbms_output.put_line(V_MINIMA);
+END;
+
+--17. Escreva uma função PL/SQL que calcule e retorne a soma dos números pares entre dois números específicos.
+
+DECLARE
+    v_soma NUMBER := 0;
+BEGIN
+    FOR indice IN 10..20 LOOP
+        IF MOD(indice, 2) = 0 THEN
+            v_soma := v_soma + indice;
+        END IF;
+    END LOOP;
+
+    dbms_output.put_line(v_soma);
+END;
+
+

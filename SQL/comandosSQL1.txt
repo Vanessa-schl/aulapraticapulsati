@@ -1,0 +1,172 @@
+
+SELECT nome,
+CASE WHEN SEXO = 'F' THEN 'FEMININO'
+WHEN SEXO = 'M' THEN 'MASCULINO'
+ELSE 'NÃO INFORMADO'
+END,
+TIPO_SANGUINEO
+FROM VANE_USUARIOS;
+
+-----------------------------
+
+SELECT nome, tipo_sanguineo FROM VANE_USUARIOS
+WHERE tipo_sanguineo = 'A+'
+
+UNION all ou union -- uninon é como um distinct e o union all traz todos mesmo repetidos
+
+SELECT nome, tipo_sanguineo FROM VANE_USUARIOS
+WHERE tipo_sanguineo = 'A-'
+
+-----------------------------
+
+-----CRIAR UMA VIEW==========
+
+CREATE VIEW VANE_AAA AS
+
+SELECT id,
+       nome 
+CASE WHEN SEXO = 'F' THEN 'FEMININO'
+WHEN SEXO = 'M' THEN 'MASCULINO'
+END,
+tipo_sanguineo,
+email
+FROM VANE_USUARIOS
+
+===replace da view = create or replace view vane_aaa;
+
+
+
+
+
+
+
+
+
+
+
+---------------------PL-SQL---------------------------------------
+
+DECLARE
+----VARIAVEIS ENTRE ELES-----
+
+V_CPF VANE_USUARIOS.cpf%type;
+----TIPA O CPF DA COLUNA VANE_USUARIOS
+
+V_CPF VARCHAR2(1000); -----SEMPRE COLOCA O NOME DA VARIAVEL PRIMEIRO, := INDICANDO QUE TEM ALGO DENTRO DA VARIAVEL JÁ
+V_IDADE NUMBER;
+V_NOME VARCHAR2(1000);
+V_SEXO VARCHAR2(50);
+
+BEGIN
+----CÓDIGO ENTRE ELES-------
+
+DBMS_OUTPUT.PUT_LINE('TESTE'); ----- É COMO O DOCUMENT.WRITE
+
+IF V_NOME = 'VANESSA' THEN   --THEN = (
+    DBMS_OUTPUT.PUT_LINE(V_NOME);
+
+ELSIF V_NOME = '' THEN
+    DBMS_OUTPUT.PUT_LINE('O NOME ESTÁ VAZIO');
+END IF;  --- END IF == )
+ 
+
+end;
+
+
+
+
+
+
+-----------
+
+SELECT cpf, NOME 
+INTO V_CPF, V_NOME
+FROM adri_usuarios
+where id = 1;
+
+DBMS_OUTPUT.PUT_LINE('CPF ENCONTRADO FOI: ' || V_CPF);
+
+------FOR E LOOP---
+
+FOR R IN (SELECT * FROM ADRI_USUARIOS) LOOP --- R É UM OBJETO
+    
+    SELECT
+       CASE 
+          WHEN R.SEXO = 'M' THEN 'MASCULINO'
+          WHEN R.SEXO - 'F' THEN 'FEMININO'
+          ELSE 'NÃO INFORMADO'
+    END
+    INTO V_SEXO
+    FROM DUAL; ----- FAZER A LOGICA DO SELECT, É UMA TABELA VAZIA
+    
+    DBMS_OUTPUT.PUT_LINE('O NOME DA VEZ É ' || R_NOME);
+    DBMS_OUTPUT.PUT_LINE('O SEXO DESSA PESSOA É ' || V_SEXO);
+    
+END LOOP;
+
+END;
+
+
+-----outro tipo de for ------
+
+DECLARE
+V_CPF VANE_USUARIOS.cpf%type;
+----TIPA O CPF DA COLUNA VANE_USUARIOS
+
+V_CPF VARCHAR2(1000); -----SEMPRE COLOCA O NOME DA VARIAVEL PRIMEIRO, := INDICANDO QUE TEM ALGO DENTRO DA VARIAVEL JÁ
+V_CONTAGEM NUMBER := 200;
+V_NOME VARCHAR2(1000);
+V_SEXO VARCHAR2(50);
+
+
+BEGIN
+
+FOR indice IN 1..V_CONTAGEM LOOP --- FAZER O LOOP 20 VEZES
+    DBMS_OUTPUT.PUT_LINE(indice);
+    
+END LOOP;
+
+END;
+
+
+
+---------PROCEDURE-----
+
+
+
+
+
+
+                                                            -- N PRECISA DECLARAR OS CARACTERES
+CREATE OR REPLACE PROCEDURE VANE_AUMENTO_SALARIO (p_id IN NUMBER) --- COMO A FUNCTION --- NOS PARENTES SEMPRE DAR (NOME, SE É ENTRADA OU SAIDA e o tipo
+
+IS 
+
+
+V_SALARIO VANESSA_FUNCIONARIOS.SALARIO%TYPE  := 0;
+V_NOME VANESSA_FUNCIONARIOS.primeiro_nome%TYPE; --- NOME TABELA, NOME - PARA PUXAR A TABELA E A COLUNA ESPECIFICAS PARA ENTRAR DENTRO DO V_NOME
+
+
+BEGIN 
+
+    SELECT primeiro_nome, SALARIO
+    INTO V_NOME, V_SALARIO
+    FROM VANESSA_FUNCIONARIOS
+    WHERE ID = P_ID;
+    
+
+    IF v_salario <= 2000 THEN
+      DBMS_OUTPUT.PUT_LINE('O ANTIGO SALARIO ERA : ' || V_SALARIO);
+
+    UPDATE VANESSA_FUNCIONARIOS
+    SET SALARIO = V_SALARIO *1.1
+    WHERE ID = P_ID;
+
+
+    DBMS_OUTPUT.PUT_LINE('O NOVO SALARIO É: ' || V_SALARIO);
+    
+    ELSE
+      DBMS_OUTPUT.PUT_LINE('NÃO É POSSIVEL AUMENTAR O SALARIO');
+
+    END IF;
+END;

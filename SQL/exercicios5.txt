@@ -113,6 +113,7 @@ UPDATE VANE_PRODUTO SET preço = 1500 WHERE id_produto = 4;
 UPDATE VANE_PRODUTO SET preço = 3500 WHERE id_produto = 5;
 UPDATE VANE_PRODUTO SET preço = 3652 WHERE id_produto = 6;
 
+
 --1. Selecione todos os campos da tabela produto
 
 SELECT id_produto, nome_produto, descricao_produto, codigo_produto, data_cadastro FROM VANE_PRODUTO;
@@ -190,5 +191,28 @@ SELECT SUM(PREÇO) as quantiade_gasta,vc.nome, vc.cidade FROM VANE_VENDAS vv
 INNER JOIN VANE_CLIENTE vc ON vc.id_cliente =  vv.fk_id_cliente
 INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
 GROUP BY nome, cidade;
+
+COMMIT;
+
+--16. Selecione a Quantidade de vendas por cliente 
+SELECT SUM(PREÇO) as quantidade, nome FROM VANE_VENDAS vv
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente = vv.fk_id_cliente
+GROUP BY nome;
+
+--17. Selecione quais clientes ja compraram alguma coisa
+
+SELECT nome, nome_produto, data_venda FROM VANE_VENDAS vv
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente = vv.fk_id_cliente
+GROUP BY nome, nome_produto, data_venda;
+
+--18. Selecione quais clientes nao compraram nada
+
+SELECT data_venda FROM VANE_VENDAS
+WHERE data_venda NOT IN (SELECT data_venda FROM VANE_VENDAS vv
+INNER JOIN VANE_PRODUTO vp ON vp.id_produto = vv.fk_id_produto
+INNER JOIN VANE_CLIENTE vc ON vc.id_cliente = vv.fk_id_cliente
+GROUP BY data_venda);
 
 
