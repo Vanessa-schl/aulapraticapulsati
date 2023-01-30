@@ -86,6 +86,11 @@ where id = 1;
 
 DBMS_OUTPUT.PUT_LINE('CPF ENCONTRADO FOI: ' || V_CPF);
 
+
+
+
+
+
 ------FOR E LOOP---
 
 FOR R IN (SELECT * FROM ADRI_USUARIOS) LOOP --- R É UM OBJETO
@@ -105,6 +110,13 @@ FOR R IN (SELECT * FROM ADRI_USUARIOS) LOOP --- R É UM OBJETO
 END LOOP;
 
 END;
+
+
+
+
+
+
+
 
 
 -----outro tipo de for ------
@@ -127,6 +139,12 @@ FOR indice IN 1..V_CONTAGEM LOOP --- FAZER O LOOP 20 VEZES
 END LOOP;
 
 END;
+
+
+
+
+
+
 
 
 
@@ -170,3 +188,153 @@ BEGIN
 
     END IF;
 END;
+
+
+--chamar a procedure
+
+BEGIN vane_calculamedia; end;
+
+
+
+
+
+
+========================== triggers ===============================
+
+criar triggers 
+
+CREATE TABLE FUNCIONARIO {
+    CD_FUNCIONARIO NUMBER,
+    SALARIO NUMBER (8,2),
+    DATA_CADASTRO DATE,
+    OBSERVACAO VARCHAR2(40)
+}
+
+CREATE TABLE FUNCIONARIOS_LOG{
+    CD_FUNCIONARIO NUMBER,
+    SALARIO NUMBER(1,2),
+    DATA_LOG DATE,
+    OBSERVACAO VARCHAR2(40)
+}
+
+
+
+
+
+
+
+
+=============PACKCAGE=====
+
+SERVE PARA ORGANIZAÇÃO
+
+PKG_.AKSDKJSADJSA()
+
+--------------COMO CRIAR UM PACKCAGE:
+
+==========SEMPRE COMEÇA AQUI, É ONDE VAMOS ESPECIFICAR O QUE A GENTE QUER FAZER
+create or replace PACKAGE PKG_VANE AS
+
+FUNCTION SOMAR(V_N1 NUMBER, V_N2 NUMBER) RETURN NUMBER;
+
+FUNCTION SUBTRACAO(V_N1 NUMBER, V_N2 NUMBER) RETURN NUMBER;
+END PKG_VANE;
+
+
+
+===========DEPOIS COLOCA NO PACKAGE A PALAVRA 'BODY' PARA COLOCAR O QUE AS AÇOES PARA FAZER============
+create or replace PACKAGE BODY PKG_VANE AS
+
+FUNCTION SOMAR(V_N1 NUMBER, V_N2 NUMBER) RETURN NUMBER IS
+    BEGIN 
+        RETURN V_N1 + V_N2;
+
+END SOMAR;
+
+FUNCTION SUBTRACAO(V_N1 NUMBER, V_N2 NUMBER) RETURN NUMBER IS
+    BEGIN 
+        RETURN V_N1 + V_N2;
+
+END SUBTRACAO;
+
+END PKG_VANE;
+
+
+=============PARA SALVAR A VARIAVEIS==================
+
+DECLARE
+
+V_RESULTADO NUMBER;
+
+BEGIN
+
+V_RESULTADO := PKG_VANE.SOMAR(1,2);
+dbms_output.put_line(V_RESULTADO);
+END;
+
+
+
+===========================TRIGGERS=============================
+
+GATILHOS
+
+CREATE OR REPLACE TRIGGER vane_trigger_funcionario
+BEFORE INSERT ON vane_cidades ---- ANTES DE INSERIR
+FOR EACH ROW
+
+DECLARE
+
+BEGIN
+
+-- INSERT INTO VANE_CIDADES(cidade_id, nome_cidade,id_estado)
+--VALUES(1,'teresopolis',1)
+(1, 'teresopolis',1)
+update vane_cidades set id_estado = 2;
+
+--old.id_estado 1
+--new.id_estado 2
+
+
+--old.cidade_id valor de antes
+--new.cidade_id valor que estamos mexendo agr
+--:OLD = É O VALOR QUE JÁ ESTAVA NA TABELA
+--:NEW = É O VALOR NOVO
+
+
+END;
+
+=======exemplo========
+CREATE OR REPLACE TRIGGER vane_trigger_funcionario
+BEFORE INSERT OR UPDATE ON vane_cidades ---- ANTES DE INSERIR
+FOR EACH ROW
+
+DECLARE
+
+BEGIN
+
+IF INSERTING THEN
+    IF :NEW.VANE_CIDADES = 'PARABA' THEN
+    :NEW.VANE_CIDADES := 'TROCADO';
+    
+END IF;
+
+IF UPDATING THEN
+DBSM_OUTPUT.PUT_LINE('ESTÁ ATUALIZANDO');
+
+END IF;
+--DBSM_OUTPUT.PUT_LINE(':OLD.CIDADE_ID' || ':OLD.CIDADE_ID');
+--DBSM_OUTPUT.PUT_LINE(':NEW.CIDADE_ID' || ':NEW.CIDADE_ID');
+END;
+
+SELECT * FROM VANE_CIDADES
+
+INSERT INTO VANE_CIDADES(CIDADE_ID, NOME_CIDADE, ID_ESTADO)
+VALUES(5,'PARABA',4);
+
+
+
+
+
+
+
+

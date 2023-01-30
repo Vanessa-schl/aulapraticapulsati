@@ -268,10 +268,12 @@ END;
 
 --15. Escreva um procedimento PL/SQL que calcule e exiba a média de uma tabela de números específica.
 
-DECLARE
+CREATE OR REPLACE PROCEDURE vane_calculamedia
+
+IS 
 
 id_produto VANE_PRODUTO.PREÇO%type;
-v_MEDIA number :=0;
+v_media number :=0;
 
 BEGIN
 
@@ -285,9 +287,13 @@ end loop;
     
 END;
 
+BEGIN vane_calculamedia; end;
+
 --16. Escreva um procedimento PL/SQL que determine e exiba o maior e menor número em uma tabela de números específica.
 
-DECLARE
+CREATE OR REPLACE PROCEDURE vane_maiormenor
+
+IS
 
 id_produto VANE_PRODUTO.ID_PRODUTO%type;
 V_MAXIMA NUMBER :=0;
@@ -310,6 +316,7 @@ end loop;
     dbms_output.put_line(V_MINIMA);
 END;
 
+BEGIN vane_maiormenor; END;
 --17. Escreva uma função PL/SQL que calcule e retorne a soma dos números pares entre dois números específicos.
 
 DECLARE
