@@ -1,0 +1,142 @@
+Criar uma classe pessoa(nome e idade) com um construtor que recebe esses atributosCriar uma classe endereco(Rua,Numero,CEP) criar um construtor que recebe esses atributoscriar uma classe contato(pessoa,endereco, Int numeroCelular, String Email)Na classe principal adicionar um contato usando os contrutores
+
+public class pessoa {
+    private String nome;
+    private int idade;
+    
+    public pessoa(String nome, int idade){};
+    
+    pessoa(){};
+    
+
+    
+    
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+public class endereco {
+    private String rua;
+    private int numero;
+    private int cep;
+ 
+    endereco(String rua, int numero, int cep){};
+    
+    endereco(){};
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getCep() {
+        return cep;
+    }
+
+    public void setCep(int cep) {
+        this.cep = cep;
+    }
+}
+
+
+
+
+
+
+public class contato {
+    private String email;
+    private int numeroCelular;
+    
+    private pessoa contatoPessoa;
+    private endereco contatoEndereco;
+    
+    contato(){
+        contatoPessoa = new pessoa();
+        contatoEndereco = new endereco();
+    }
+    
+    public void atualizaContato(String email, int numeroCelular, String nome, int idade, String rua, 
+            int numero, int cep){
+        setEmail(email);
+        setNumeroCelular(numeroCelular);
+        contatoPessoa.setNome(nome);
+        contatoPessoa.setIdade(idade);
+        contatoEndereco.setRua(rua);
+        contatoEndereco.setNumero(numero);
+        contatoEndereco.setCep(cep);
+    }
+    
+    public void imprime(){
+        System.out.println("nome: "+contatoPessoa.getNome()+" com idade: "+contatoPessoa.getIdade()+
+                " mora na rua "+contatoEndereco.getRua()+", numero: "+contatoEndereco.getNumero()+
+                ", com o cep: "+contatoEndereco.getCep()+". Email dessa pessoa: "
+                +getEmail()+" e numero de celular: "+getNumeroCelular());
+    }
+   
+    
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getNumeroCelular() {
+        return numeroCelular;
+    }
+
+    public void setNumeroCelular(int numeroCelular) {
+        this.numeroCelular = numeroCelular;
+    }
+    
+    
+}
+
+
+
+
+
+public class ExercicioConstrutor {
+
+    public static void main(String[] args) {
+        contato contato1 = new contato();
+        contato1.atualizaContato("vane@gmail.com", 992568945, "vanessa", 20, "blabla", 65, 89062220);
+        contato1.imprime();
+    }
+}

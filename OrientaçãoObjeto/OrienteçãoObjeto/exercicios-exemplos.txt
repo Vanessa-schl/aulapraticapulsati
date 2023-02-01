@@ -1,0 +1,371 @@
+PILARES DA ORIENTAÇÃO:
+
+- ABSTRAÇÃO === 
+- POLIMORFISMO ===
+- HERANÇA ===
+    exercicio exemplo HERANÇA
+
+public class veiculo {
+    private double velocidade;
+    private int quantidadePassageiros;
+
+    
+    
+    public double getVelocidade() {
+        return velocidade;
+    }
+
+    public void setVelocidade(double velocidade) {
+        this.velocidade = velocidade;
+    }
+
+    public int getQuantidadePassageiros() {
+        return quantidadePassageiros;
+    }
+
+    public void setQuantidadePassageiros(int quantidadePassageiros) {
+        this.quantidadePassageiros = quantidadePassageiros;
+    }
+    
+    
+    
+}
+
+
+public class moto extends veiculo {
+    private double comprimentoGuidao;
+    private int quantidadeRetrovisor;
+
+  
+    
+    public double getComprimentoGuidao() {
+        return comprimentoGuidao;
+    }
+
+    public void setComprimentoGuidao(double comprimentoGuidao) {
+        this.comprimentoGuidao = comprimentoGuidao;
+    }
+
+    public int getQuantidadeRetrovisor() {
+        return quantidadeRetrovisor;
+    }
+
+    public void setQuantidadeRetrovisor(int quantidadeRetrovisor) {
+        this.quantidadeRetrovisor = quantidadeRetrovisor;
+    }
+    
+    
+}
+
+public class aviao extends veiculo {
+    private int quantidadePorta;
+    private int quantidadeJanelas;
+
+    
+    public int getQuantidadePorta() {
+        return quantidadePorta;
+    }
+
+    public void setQuantidadePorta(int quantidadePorta) {
+        this.quantidadePorta = quantidadePorta;
+    }
+
+    public int getQuantidadeJanelas() {
+        return quantidadeJanelas;
+    }
+
+    public void setQuantidadeJanelas(int quantidadeJanelas) {
+        this.quantidadeJanelas = quantidadeJanelas;
+    }
+    
+    
+}
+public class ExercicioHeranaca {
+    public static void imprimeMensagem(veiculo v){
+        System.out.println("quantidade passageiro: "+v.getQuantidadePassageiros());
+        
+    }
+    public static void main(String[] args) {
+        aviao aviao1 = new aviao();
+        moto moto1 = new moto();
+        
+        aviao1.setQuantidadeJanelas(50);
+        aviao1.setQuantidadePassageiros(200);
+        aviao1.setQuantidadePorta(2);
+        aviao1.setVelocidade(200);
+        
+        moto1.setComprimentoGuidao(45);
+        moto1.setQuantidadePassageiros(2);
+        moto1.setQuantidadeRetrovisor(2);
+        moto1.setVelocidade(120);
+        
+        imprimeMensagem(aviao1);
+        imprimeMensagem(moto1);
+    }
+}
+
+
+
+
+- ENCAPSULAMENTO ===
+EXERCICIO EXEMPLO ENCAPSULAMENTO
+
+public class aluno {
+    private String nome;
+    private int nota;
+
+    public void imprimeAluno(){
+        System.out.println("nome do aluno é: "+getNome()+" e a nota é: "+getNota());
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+    
+}
+
+public class ExercicioEncapsulamento2 {
+
+    public static void main(String[] args) {
+        //criar uma classe aluno
+        //com os atributos nota e nome
+        //fazer o metodo imprimir
+        // encapsular os campos
+        //criar um objeto dessa classe aluno na classe principal
+        // definir os valores e imprima o objeto
+        
+       
+        aluno aluno1 = new aluno();
+        
+        aluno1.setNome("vanessa");
+        aluno1.setNota(10);
+        
+        aluno1.imprimeAluno();
+    }
+}
+
+
+
+
+==============================================================================================
+
+
+exemplo1=
+
+public class pessoa {
+    String nome;
+    char genero;
+    int idade;
+    
+    public void imprimePessoa(){
+            System.out.println(nome+" tem "+idade+" anos e é do genero "+genero);
+}
+}
+
+
+public class Exercicio1 {
+
+    public static void main(String[] args) {
+        pessoa pessoa1 = new pessoa();
+        
+        pessoa1.nome = "Vanessa";
+        pessoa1.idade = 20;
+        pessoa1.genero = 'F'; //sempre que for char colocar em aspas simples
+        
+        pessoa1.imprimePessoa();
+        
+        pessoa pessoa2 = new pessoa();
+        
+        pessoa2.nome = "Lucas";
+        pessoa2.idade = 23;
+        pessoa2.genero = 'M';
+        
+        pessoa2.imprimePessoa();
+    }
+}
+
+
+================ exercicios ==================================
+
+2.
+
+//Projeto exercicio2 Computador(int memoria, String processador)
+public class computador {
+        int memoria;
+        String processador;
+        
+        public void imprimeComputador(){
+            System.out.println("memoria do computador é de "+memoria+" e o processador é de "+processador);
+        }
+}
+
+
+
+
+public class Exercicio2 {
+
+    public static void main(String[] args) {
+        computador computador1 = new computador();
+        
+        computador1.memoria = 264;
+        computador1.processador = "intex";
+        
+        computador1.imprimeComputador();
+        
+        computador computador2 = new computador();
+        
+        computador2.memoria = 1000;
+        computador2.processador = "lalala";
+        
+        computador2.imprimeComputador();
+    }
+}
+
+
+
+3. 
+
+//Projeto exercicio3 Aluno( double nota, String nome)
+public class Aluno {
+    double nota;
+    String nome;
+    
+    public void imprimeAluno(){
+        System.out.println("Nota: "+nota+" do aluno: "+nome);
+    }
+}
+
+
+public class Exercicio3 {
+
+    public static void main(String[] args) {
+        Aluno aluno1 = new Aluno();
+        
+        aluno1.nota = 7.6;
+        aluno1.nome = "luana";
+        
+        aluno1.imprimeAluno();
+        
+        Aluno aluno2 = new Aluno();
+        
+        aluno2.nota = 10;
+        aluno2.nome = "vanessa";
+        
+        aluno2.imprimeAluno();
+        
+    }
+}
+
+
+4.
+
+//Projeto exercicio4 Casa(int metrosQuadrados, String cor)
+public class casa {
+    int metrosQuadrados;
+    String cor;
+    
+    public void imprimeCasa(){
+        System.out.println("metros quadrados da casa: "+metrosQuadrados+" cor da casa: "+cor);
+    }
+
+
+public class Exercicio4 {
+
+    public static void main(String[] args) {
+        casa casa1 = new casa();
+        
+        casa1.metrosQuadrados = 250;
+        casa1.cor = "cinza";
+        
+        casa1.imprimeCasa();
+        
+        casa casa2 = new casa();
+        
+        casa2.metrosQuadrados = 654;
+        casa2.cor = "branca";
+        
+        casa2.imprimeCasa();
+    }
+}
+
+
+5.
+
+//Projeto exercicio5 Carro(int litrosTanque, String Montadora
+public class carro {
+    int litrosTanque;
+    String montadora;
+    
+    public void imprimeCarro(){
+        System.out.println("litros no tanque: "+litrosTanque+" da montadora: "+montadora);
+    }
+}
+
+
+public class Exercicio5 {
+
+    public static void main(String[] args) {
+        carro carro1 = new carro();
+        
+        carro1.litrosTanque = 5;
+        carro1.montadora = "volksvagen";
+        
+        carro1.imprimeCarro();
+        
+        carro carro2 = new carro();
+        
+        carro2.litrosTanque = 8;
+        carro2.montadora = "fiat";
+        
+        carro2.imprimeCarro();
+    }
+}
+
+
+
+6.
+
+
+//Projeto exercicio6 Professor(String nome, String curso)
+public class professor {
+    String nome;
+    String curso;
+    
+    public void imprimeProfessor(){
+        System.out.println("nome do professor: "+nome+" e unidade curricular: "+curso);
+    }
+}
+
+
+public class Exercicio6 {
+
+    public static void main(String[] args) {
+        professor professor1 = new professor();
+        
+        professor1.nome = "douglas";
+        professor1.curso = "segurança da informação";
+        
+        professor1.imprimeProfessor();
+        
+        professor professor2 = new professor();
+        
+        professor2.nome = "Ana";
+        professor2.curso = "java";
+        
+        professor2.imprimeProfessor();
+                
+        
+    }
+}

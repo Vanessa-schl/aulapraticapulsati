@@ -1,0 +1,276 @@
+1.
+
+public class animal {
+    private String nome;
+    private String raca;
+    
+    public void imprimeCaminha(){
+        System.out.println(nome+" esse animal caminha");
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+    
+    
+}
+public class cachorro extends animal {
+    public void imprimeLate(){
+        System.out.println(getNome() +" esse animal late e a raça é "+getRaca());
+    }
+}
+
+
+public class gato extends animal {
+    public void imprimeMia(){
+        System.out.println(getNome()+" esse animal mia e a raça é "+getRaca());
+    }
+}
+
+
+public class Exercicio1_heranca {
+
+    public static void main(String[] args) {
+        
+        cachorro cachorro1 = new cachorro();
+        gato gato1 = new gato();
+    
+        cachorro1.setNome("Kelly");
+        cachorro1.setRaca("Pastora alemão");
+        
+        cachorro1.imprimeCaminha();
+        cachorro1.imprimeLate();
+        
+        gato1.setNome("Freddy");
+        gato1.setRaca("siames");
+        
+        gato1.imprimeCaminha();
+        gato1.imprimeMia();
+        
+        
+    }
+}
+
+2.
+
+public class conta {
+    private String numero;
+    private String cliente;
+    private double saldo;
+
+    
+   public void depositar(double valor){
+       setSaldo(getSaldo() + valor);
+       System.out.println("saldo atual: "+getSaldo());
+   }
+   
+   public void sacar(double valor){
+       if(valor > getSaldo()){
+           System.out.println("saldo insuficiente");
+   }else{
+           setSaldo(getSaldo() - valor);
+           System.out.println("saldo atual: "+getSaldo());
+       }
+   }
+        
+        
+    
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+    
+    
+}
+
+
+public class contaEspecial extends conta {
+    private double limite;
+    
+     public void depositar(double valor){
+       setSaldo(getSaldo() + valor);
+       System.out.println("saldo atual: "+getSaldo());
+   }
+   
+   public void sacar(double valor){
+       if(valor > (getSaldo() + getLimite())){
+           System.out.println("saldo insuficiente");
+   }else{
+           setSaldo(getSaldo() - valor);
+           System.out.println("saldo atual: "+getSaldo());
+       }
+   }
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+    
+    
+}
+
+
+public class Exercicio2_heranca {
+
+    public static void main(String[] args) {
+       
+        conta conta1 = new conta();
+        
+        conta1.setCliente("vanessa");
+        conta1.setNumero("1");
+        conta1.setSaldo(200);
+        
+        conta1.depositar(100);
+        conta1.sacar(100);
+        
+        contaEspecial conta2 = new contaEspecial();
+        
+        conta2.setCliente("luca");
+        conta2.setNumero("2");
+        conta2.setSaldo(100);
+        conta2.setLimite(150);
+        
+        conta1.depositar(0);
+        conta1.sacar(300);
+        
+        
+        
+    }
+}
+
+
+3.
+
+public class mamiferos {
+    private int mamas;
+    private String pelo;
+
+    public int getMamas() {
+        return mamas;
+    }
+
+    public void setMamas(int mamas) {
+        this.mamas = mamas;
+    }
+
+    public String getPelo() {
+        return pelo;
+    }
+
+    public void setPelo(String pelo) {
+        this.pelo = pelo;
+    }
+    
+    
+}
+
+public class cachorro extends mamiferos {
+    private String cauda;
+
+     public void imprimeCorre(){
+        System.out.println(" esse animal corre");}
+     
+      public void imprimeTrota(){
+        System.out.println(" esse animal trota");}
+      
+    
+    public String getCauda() {
+        return cauda;
+    }
+
+    public void setCauda(String cauda) {
+        this.cauda = cauda;
+    }
+    
+    public class macaco extends mamiferos {
+    private String cauda;
+
+    public void imprimeSobeArvores(){
+        System.out.println(" esse animal sobe em arvores");}
+    
+    public String getCauda() {
+        return cauda;
+    }
+
+    public void setCauda(String cauda) {
+        this.cauda = cauda;
+    }
+    
+    
+}
+
+
+
+public class homem extends mamiferos {
+    private String pelos;
+
+    public void imprimeCaminhar(){
+        System.out.println(" esse animal caminha");}
+    
+    public String getPelos() {
+        return pelos;
+    }
+
+    public void setPelos(String pelos) {
+        this.pelos = pelos;
+    }
+    
+    
+}
+
+    
+}
+
+public class Exercicio3_heranca {
+
+    public static void main(String[] args) {
+        cachorro cachorro1 = new cachorro();
+        macaco macaco1 = new macaco();
+        homem homem1 = new homem();
+        
+        cachorro1.imprimeCorre();
+        cachorro1.imprimeTrota();
+        
+        macaco1.imprimeSobeArvores();
+        
+        homem1.imprimeCaminhar();
+        
+    }
+}
+
+
+

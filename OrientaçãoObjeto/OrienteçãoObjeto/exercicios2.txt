@@ -1,0 +1,325 @@
+1. Sistema de gerenciamento de biblioteca: Crie uma classe abstrata "Item" para representar um item na biblioteca: com atributos como "título", "autor" e "número de exemplares".Em seguida, crie outras duas classes que herdam de "Item":classe livro Livro(INT ISBN, int numPaginas )classe Revista (int numEdicao)Crie tambem uma classe biblioteca:Metodos:   AlugarItem, que recebe um item, e mostra uma mensagem dizendo (item.titulo + " foi alugado") exemplo: "É assim que acaba foi alugado"   DevolverrItem, que recebe um item, e mostra uma mensagem dizendo (item.titulo + " foi devolvido") exemplo: "É assim que acaba foi devolvido
+
+public abstract class item {
+    private String titulo;
+    private String autor;
+    private int numeroExemplares;
+
+    public abstract void imprime();
+    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getNumeroExemplares() {
+        return numeroExemplares;
+    }
+
+    public void setNumeroExemplares(int numeroExemplares) {
+        this.numeroExemplares = numeroExemplares;
+    }
+    
+    
+    
+}
+
+public class livro extends item{
+    private int bookNumber;
+    private int numPaginas;
+
+    
+    
+    public int getBookNumber() {
+        return bookNumber;
+    }
+
+    public void setBookNumber(int bookNumber) {
+        this.bookNumber = bookNumber;
+    }
+
+    public int getNumPaginas() {
+        return numPaginas;
+    }
+
+    public void setNumPaginas(int numPaginas) {
+        this.numPaginas = numPaginas;
+    }
+
+    @Override
+    public void imprime() {
+        System.out.println("o nome do livro é: "+getTitulo()+", do autor: "+getAutor()+", numero de paginas do livro: "
+                +getNumPaginas()+", codigo do livro: "+getBookNumber());
+    }
+    
+    
+    
+}
+
+
+public class revista extends item {
+
+    private int numEdicao;
+
+    public int getNumEdicao() {
+        return numEdicao;
+    }
+
+    public void setNumEdicao(int numEdicao) {
+        this.numEdicao = numEdicao;
+    }
+
+    @Override
+    public void imprime() {
+          System.out.println("o nome da revista é: "+getTitulo()+", do autor: "+getAutor()+", numero da edicao: "
+                +getNumEdicao());
+    }
+
+}
+
+
+public class ExercicioBiblioteca {
+    public static void main(String[] args) {
+        
+        biblioteca biblioteca1 = new biblioteca();
+        
+        livro livro1 = new livro();
+        livro livro2 = new livro();
+        
+        livro1.setTitulo("é assim que acaba");
+        livro1.setAutor("coolen grover");
+        livro1.setNumPaginas(360);
+        livro1.setBookNumber(1);
+        livro1.setNumeroExemplares(1);
+        
+        livro2.setTitulo("corte de espinhos e rosas");
+        livro2.setAutor("sarah j. maas");
+        livro2.setNumPaginas(450);
+        livro2.setBookNumber(2);
+        livro2.setNumeroExemplares(2);
+        
+        
+        biblioteca1.alugarItem(livro1);
+        biblioteca1.alugarItem(livro1);
+        biblioteca1.devolverItem(livro1);
+        biblioteca1.alugarItem(livro1);
+        
+        biblioteca1.alugarItem(livro2);
+        biblioteca1.alugarItem(livro2);
+        
+        revista revista1 = new revista();
+        
+        revista1.setTitulo("magazine year");
+        revista1.setAutor("alana");
+        revista1.setNumEdicao(25);
+        revista1.setNumeroExemplares(1);
+        
+       biblioteca1.alugarItem(revista1);
+       biblioteca1.alugarItem(revista1);
+        
+    }
+}
+
+
+2. Sistema de gerenciamento de contas:
+ Crie uma classe "Conta" para representar uma conta bancária, com atributos como "nome do titular", "saldo" e "número da conta":
+ Implemente métodos para depositar, sacar e transferir dinheiro entre contas.
+ Em seguida, crie outras duas classes que herdam de "Conta":
+ "ContaEspecial"(double Limite)
+ "ContaPoupanca"(double taxaRendimento)
+
+ public abstract class conta {
+    private String nomeTitular;
+    private double saldo;
+    private int numeroConta;
+    
+    
+    public void depositar(double valor){};
+    
+    
+    public void sacar(double valor){};
+      
+    
+    public abstract void transferir(double valor, conta retirar, conta receber );
+    
+      
+    
+    
+    
+    public String getNomeTitular() {
+        return nomeTitular;
+    }
+
+    public void setNomeTitular(String nomeTitular) {
+        this.nomeTitular = nomeTitular;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+    
+    
+}
+
+public class contaPoupanca extends conta {
+    private double taxaRendimento;
+
+    
+    public void depositar(double valor){
+       setSaldo(getSaldo() + valor);
+       setSaldo(getSaldo() + ((getSaldo() * getTaxaRendimento())));
+       System.out.println("saldo atual: "+getSaldo());     
+}
+    
+    public void sacar(double valor){
+       if(valor > getSaldo()){
+           System.out.println("saldo insuficiente");
+   }else{
+           setSaldo(getSaldo() - valor);
+           System.out.println("saldo atual: "+getSaldo());
+       }
+    }
+    
+    @Override
+    public void transferir(double valor, conta retirar, conta receber ){
+        if (valor > getSaldo()) {
+            System.out.println("n é possivel transferir");
+        }else{
+            retirar.setSaldo(retirar.getSaldo() - valor);
+            receber.setSaldo(receber.getSaldo()+valor);
+            System.out.println("saldo atual da conta retirada: "+retirar.getSaldo());
+            System.out.println("saldo atual da conta recebida: "+receber.getSaldo());
+            System.out.println("valor transferido: "+valor);
+        }
+
+
+        //outro jeito de fazer o transferir:
+    
+   // public void transferir(double valor, conta contadestino){
+   //     if(this.getSaldo()+this.getLimite() >= valor){
+  //          this.setSaldo(this.getSaldo()-valor);
+    //        if(this.getSaldo() < 0){
+      //          this.limite += this.getSaldo();
+        //    }
+       // }else{
+         //   System.out.println("saldo insuficiente");
+        //}
+    //}
+    }
+    
+    
+    public double getTaxaRendimento() {
+        return taxaRendimento;
+    }
+
+    public void setTaxaRendimento(double taxaRendimento) {
+        this.taxaRendimento = taxaRendimento;
+    }
+    
+    
+}
+
+
+public class contaEspecial extends conta {
+    private double limite;
+
+    
+     public void depositar(double valor){
+       setSaldo(getSaldo() + valor);
+       System.out.println("saldo atual: "+getSaldo());     
+}
+    
+    public void sacar(double valor){
+       if(valor > (getSaldo() + getLimite())){
+           System.out.println("saldo insuficiente");
+   }else{
+           setSaldo(getSaldo() - valor);
+           System.out.println("saldo atual: "+getSaldo());
+       }
+    }
+   
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
+    @Override
+    public void transferir(double valor, conta retirar, conta receber) {
+        if(valor > (getSaldo() + getLimite())){
+            System.out.println("n é possivel transferir");
+        }else{
+            retirar.setSaldo(retirar.getSaldo() - valor);
+            receber.setSaldo(receber.getSaldo()+valor);
+            System.out.println("saldo atual da conta retirada: "+retirar.getSaldo());
+            System.out.println("saldo atual da conta recebida: "+receber.getSaldo());
+            System.out.println("valor transferido: "+valor);
+        }
+    }
+    
+    
+}
+
+
+public class ExercicioBanco {
+
+    public static void main(String[] args) {
+
+        contaEspecial conta1 = new contaEspecial();
+
+        conta1.setNomeTitular("vanessa");
+        conta1.setNumeroConta(1);
+        conta1.setSaldo(500);
+        conta1.setLimite(200);
+
+        conta1.depositar(200);
+        conta1.sacar(850);
+
+        contaEspecial conta2 = new contaEspecial();
+
+        conta2.setNomeTitular("carlos");
+        conta2.setNumeroConta(2);
+        conta2.setSaldo(900);
+        conta2.setLimite(200);
+
+        conta2.depositar(200);
+        conta2.sacar(850);
+
+        conta1.transferir(20, conta1, conta2);
+
+        contaPoupanca p_conta = new contaPoupanca();
+
+        p_conta.setNomeTitular("vanessa");
+        p_conta.setNumeroConta(3);
+        p_conta.setSaldo(1000);
+        p_conta.setTaxaRendimento(0.1);
+        
+        p_conta.depositar(100);
+        p_conta.sacar(500);
+    }
+}

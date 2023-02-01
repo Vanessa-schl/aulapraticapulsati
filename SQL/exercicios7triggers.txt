@@ -1,0 +1,102 @@
+-- 1. Crie uma trigger para inserir automaticamente a data de criação da cidade
+--quando for inserido um novo registro na tabela "cidades".
+ALTER TABLE VANE_CIDADES ADD data_criacao date;
+
+CREATE OR REPLACE TRIGGER VANE_DATA 
+BEFORE INSERT OR UPDATE ON VANE_CIDADES
+FOR EACH ROW 
+
+DECLARE
+
+
+BEGIN
+
+IF INSERTING THEN
+        :NEW.data_criacao := sysdate;
+END IF;
+
+IF UPDATING THEN
+     DBMS_OUTPUT.PUT_LINE('ESTÁ ATUALIZANDO');
+    END IF;
+END;
+
+INSERT INTO VANE_CIDADES(CIDADE_ID, NOME_CIDADE, ID_ESTADO, DATA_CRIACAO)
+VALUES(7, 'PARAHA', 3,'');
+
+----2. Crie uma trigger  para impedir a inserção de cidades com nome repetido na tabela "cidades".
+
+CREATE OR REPLACE TRIGGER VANE_REPT 
+BEFORE INSERT OR UPDATE ON VANE_CIDADES
+FOR EACH ROW
+
+DECLARE
+
+
+BEGIN
+    FOR R IN (SELECT nome_cidade FROM VANE_CIDADES) LOOP
+    IF R.nome_cidade = :NEW.nome_cidade THEN
+        raise_application_error(-20001, 'cidade já existe');
+    END IF;
+    END LOOP;
+END;
+
+INSERT INTO VANE_CIDADES(CIDADE_ID, NOME_CIDADE, ID_ESTADO, DATA_CRIACAO)
+VALUES(8, 'PARAHA', 3,'');
+
+
+-----3.  Crie um pacote PL/SQL para retornar todas as cidades de um determinado estado.
+
+
+
+
+
+--4. Crie um pacote PL/SQL para retornar o nome do país a partir do id do estado na tabela "estado".
+
+CREATE OR REPLACE PACKAGE VANE_PKG_2 AS
+FUNCTION RETORNA_PAIS(ID_ESTADO NUMBER) RETURN VARCHAR2;
+END VANE_PKG_2;
+
+CREATE OR REPLACE PACKAGE BODY VANE_PKG_2 AS
+FUNCTION RETORNA_PAIS(ID_ESTADO NUMBER) RETURN VARCHAR2 
+IS
+PAIS VARCHAR2(100) := '';
+BEGIN
+    SELECT NOME_PAIS INTO PAIS FROM VANE_PAISES
+    INNER JOIN VANE_estados ON VANE_estados.id_pais = VANE_paises.pais_id
+    WHERE ESTADO_ID = ID_ESTADO;
+    RETURN PAIS;
+END RETORNA_PAIS;
+END VANE_PKG_2;
+
+DECLARE
+RESULTADO VARCHAR2(100);
+
+BEGIN
+    RESULTADO:= VANE_PKG_2.RETORNA_PAIS(1);
+    dbms_output.put_line(RESULTADO);
+END;
+
+
+----7
+
+---7. Crie um gatilho para impedir a exclusão de estados que possuam cidades na tabela "estado".
+
+CREATE OR REPLACE TRIGGER NAODELETA
+BEFORE DELETE ON VANE_ESTADOS
+FOR EACH ROW
+
+DECLARE
+
+ORDERS NUMBER;
+
+
+BEGIN
+ORDERS:=0;
+
+SELECT COUNT(1) INTO ORDERS FROM VANE_ESTADOS WHERE ESTADO_ID = :OLD.ESTADO_ID;
+    IF(orders > 0) THEN
+        RAISE_APPLICATION_ERROR(-20000,orders||
+        'DELETE PRIMEIRO A CIDADE E DEPOIS O ESTADO');
+    END IF;
+
+END;

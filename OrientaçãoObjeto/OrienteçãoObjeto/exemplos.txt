@@ -1,0 +1,41 @@
+construtores
+
+public class carro {
+    private String montadora;
+    private String modelo;
+
+    public carro(){}
+    
+        //nome sempre igual
+    public carro(String montadora){
+        this.montadora = montadora;
+    }  
+    
+    public String getMontadora() {
+        return montadora;
+    }
+
+    public void setMontadora(String montadora) {
+        this.montadora = montadora;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    
+    
+}
+
+public class ExemploConstrutor {
+
+    public static void main(String[] args) {
+        carro carro1 = new carro("jac");
+        System.out.println(carro1.getMontadora());
+        
+        
+    }
+}
