@@ -1,0 +1,431 @@
+1. Crie uma classe pessoa que possua os atributos nome e idade. Adicione um método que retorne uma string no formato "Nome: [nome], Idade: [idade]".
+Crie uma classe estudante que herde da classe pessoa e adicione um atributoidentificadorEstudante. Adicione um método que retorne uma string no formato "Nome: [nome], Idade: [idade], Matrícula: [identificadorEstudante]".
+
+public class pessoa {
+    private String nome;
+    private int idade;
+    
+    pessoa(){};
+    
+    pessoa(String nome, int idade){};
+    
+    
+    
+    
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
+    
+   
+}
+
+
+public class estudante extends pessoa {
+    private int identificadorEstudante;
+    
+    private pessoa estudantePessoa;
+    
+    estudante(){
+        estudantePessoa = new pessoa();
+    }
+    
+    public void Alunos(String nome, int idade, int identificadorEstudante){
+        estudantePessoa.setNome(nome);
+        estudantePessoa.setIdade(idade);
+        setIdentificadorEstudante(identificadorEstudante);
+        
+    }
+    public void imprime(){
+        System.out.println("nome do aluno: "+estudantePessoa.getNome()+", idade: "+estudantePessoa.getIdade()+" e matricula: "+getIdentificadorEstudante());
+    }
+
+    public int getIdentificadorEstudante() {
+        return identificadorEstudante;
+    }
+
+    public void setIdentificadorEstudante(int identificadorEstudante) {
+        this.identificadorEstudante = identificadorEstudante;
+    }
+}
+public class ExerciciosInterface1 {
+    public static void main(String[] args) {
+       estudante estu1 = new estudante();
+       
+       estu1.Alunos("vanessa", 20, 123);
+       estu1.imprime();
+        
+        
+        
+    }
+}
+
+2. Crie uma interface veiculo com métodos para acelerar e frear.
+Crie três classes que implementem a interface veiculo: Carro, Bicicleta, Caminhao.
+Adicione um atributo Velocidade à interface veiculo e implemente-o nas três classes criadas no exercício anterior
+
+
+public interface veiculo {
+    static int velocidadeinicial = 0;
+    
+    void acelerar();
+    void frear();
+    void velocidadeAtual();
+    
+    
+}
+
+
+public class carro implements veiculo{
+        private int velocidadeCarro;
+    
+     carro(){
+         setVelocidadeCarro(veiculo.velocidadeinicial);
+     }
+     
+    @Override
+    public void acelerar() {
+        setVelocidadeCarro(getVelocidadeCarro() + 10);
+        System.out.println("veiculo acelerou");
+    }
+
+    @Override
+    public void frear() {
+        setVelocidadeCarro(getVelocidadeCarro() - 10);
+        System.out.println("veiculo freou");
+    }
+
+    @Override
+    public void velocidadeAtual() {
+        System.out.println("velocidade atual: "+getVelocidadeCarro());
+   
+    }
+
+    public int getVelocidadeCarro() {
+        return velocidadeCarro;
+    }
+
+    public void setVelocidadeCarro(int velocidadeCarro) {
+        this.velocidadeCarro = velocidadeCarro;
+    }
+    
+
+}
+
+
+public class caminhao implements veiculo{
+    private int velocidadeCaminhao;
+    
+    caminhao(){
+        setVelocidadeCaminhao(veiculo.velocidadeinicial);
+    }
+
+    public int getVelocidadeCaminhao() {
+        return velocidadeCaminhao;
+    }
+
+    public void setVelocidadeCaminhao(int velocidadeCaminhao) {
+        this.velocidadeCaminhao = velocidadeCaminhao;
+    }
+
+    
+    @Override
+    public void acelerar() {
+        setVelocidadeCaminhao(velocidadeCaminhao + 20);
+        System.out.println("caminhao acelerou");
+    }
+    @Override
+    public void frear() {
+        setVelocidadeCaminhao(velocidadeCaminhao - 20 );
+        System.out.println("caminhao freou");
+    }
+
+    @Override
+    public void velocidadeAtual() {
+        System.out.println("velocidade atual é: "+getVelocidadeCaminhao());
+    }
+}
+
+
+public class bicicleta implements veiculo{
+    private int velocidadeBicicleta;
+    
+   bicicleta(){
+       setVelocidadeBicicleta(veiculo.velocidadeinicial);
+   }
+    
+    
+    @Override
+    public void acelerar() {
+        setVelocidadeBicicleta(velocidadeBicicleta + 5);
+        System.out.println("bicileta acelerou");
+    }
+
+    @Override
+    public void frear() {
+        setVelocidadeBicicleta(velocidadeBicicleta - 5);
+        System.out.println("bicileta freou");
+    }
+
+    @Override
+    public void velocidadeAtual() {
+        System.out.println("velocidade atual: "+getVelocidadeBicicleta());
+    }
+
+    
+    
+    
+    public int getVelocidadeBicicleta() {
+        return velocidadeBicicleta;
+    }
+
+    
+    
+    public void setVelocidadeBicicleta(int velocidadeBicicleta) {
+        this.velocidadeBicicleta = velocidadeBicicleta;
+    }
+
+}
+
+
+public class ExerciciosInterface2 {
+
+    public static void main(String[] args) {
+        carro uno = new carro();
+        
+        uno.acelerar();
+        uno.acelerar();
+        uno.velocidadeAtual();
+        uno.frear();
+        uno.velocidadeAtual();
+        
+        caminhao bla = new caminhao();
+        
+        bla.acelerar();
+        bla.acelerar();
+        bla.velocidadeAtual();
+        bla.frear();
+        bla.velocidadeAtual();
+        
+        bicicleta bike = new bicicleta();
+        
+        bike.acelerar();
+        bike.acelerar();
+        bike.velocidadeAtual();
+        bike.frear();
+        bike.velocidadeAtual();
+        
+    }
+}
+
+
+3.  Criar uma interface chamada "Calculadora" com dois métodos abstratos "somar" e "subtrair". Implemente a interface em uma classe chamada "CalculadoraImpl" e forneça implementações para os métodos "somar" e "subtrair".
+
+public interface calculadora {
+
+       void somar();
+       void subtrair();
+  
+}
+
+
+public class CalculadoraImpl implements calculadora{
+    private int valor1;
+    private int valor2;
+    private int resultado;
+    
+    @Override
+    public void somar() {
+        setResultado(getValor1() + getValor2());
+        System.out.println("o resultado é: "+getResultado());
+        
+    }
+
+    @Override
+    public void subtrair() {
+        setResultado(getValor1() - getValor2());
+        System.out.println("o resultado é: "+getResultado());
+    }
+
+
+
+    public int getValor1() {
+        return valor1;
+    }
+
+    public void setValor1(int valor1) {
+        this.valor1 = valor1;
+    }
+
+    public int getValor2() {
+        return valor2;
+    }
+
+    public void setValor2(int valor2) {
+        this.valor2 = valor2;
+    }
+
+    public int getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(int resultado) {
+        this.resultado = resultado;
+    }
+    
+}
+
+
+public class ExerciciosInterface3 {
+
+    public static void main(String[] args) {
+        CalculadoraImpl calcula = new CalculadoraImpl();
+        
+        calcula.setValor1(5);
+        calcula.setValor2(10);
+        calcula.somar();
+        
+    }
+}
+
+
+4. Criar uma interface chamada "Veículo" com três métodos abstratos "acelerar", "frear" e "mudarMarcha". Implemente a interface em uma classe "Carro" e forneça implementações para os métodos "acelerar", "frear" e "mudarMarcha".
+
+
+public interface veiculo {
+    static int velocidadeinicial = 0;
+    
+    void acelerar();
+    void frear();
+    void mudarMarcha(int alteracao);
+    void velocidadeAtual();
+    
+}
+
+
+public class carro implements veiculo{
+    private int velocidadeCarro;
+    private int marcha;
+    
+     carro(){
+         setVelocidadeCarro(veiculo.velocidadeinicial);
+     }
+     
+    
+    @Override
+    public void acelerar() {
+        setVelocidadeCarro(getVelocidadeCarro() + 10);
+        System.out.println("veiculo acelerou");
+    }
+
+    @Override
+    public void frear() {
+      setVelocidadeCarro(getVelocidadeCarro() - 10);
+      System.out.println("veiculo freou");
+    }
+
+    @Override
+    public void mudarMarcha(int alteracao) {
+        setMarcha(getMarcha() + alteracao );
+    }
+
+    @Override
+    public void velocidadeAtual() {
+      System.out.println("velocidade atual: "+getVelocidadeCarro());
+    }
+
+    
+    
+    
+   
+    public int getVelocidadeCarro() {
+        return velocidadeCarro;
+    }
+
+    public void setVelocidadeCarro(int velocidadeCarro) {
+        this.velocidadeCarro = velocidadeCarro;
+    }
+
+    public int getMarcha() {
+        return marcha;
+    }
+
+    public void setMarcha(int marcha) {
+        this.marcha = marcha;
+    }
+    
+}
+
+
+
+public class ExerciciosInterface4 {
+
+    public static void main(String[] args) {
+        carro carro1 = new carro();
+        
+        carro1.acelerar();
+        carro1.acelerar();
+        carro1.velocidadeAtual();
+        carro1.mudarMarcha(+1);
+        System.out.println(carro1.getMarcha());
+        carro1.frear();
+        carro1.mudarMarcha(+2);
+        System.out.println(carro1.getMarcha());
+        
+    }
+}
+
+
+5. Criar uma interface chamada "MusicPlayer" com três métodos abstratos "play", "pause" e "stop". Implemente a interface em uma classe "MP3Player" e forneça implementações para os métodos "play", "pause" e "stop".
+
+public interface MusicPlayer {
+    void play();
+    void pause();
+    void stop();
+    
+}
+
+public class MP3Player implements MusicPlayer{
+    
+    
+    @Override
+    public void play() {
+        System.out.println("musica tocando");
+    }
+
+    @Override
+    public void pause() {
+        System.out.println("musica pausada");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("saida da musica");
+    }
+
+}
+
+
+public class ExerciciosInterface5 {
+
+    public static void main(String[] args) {
+        MP3Player music = new MP3Player();
+        
+        music.play();
+        music.pause();
+        music.stop();
+    }
+}
