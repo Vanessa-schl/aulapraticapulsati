@@ -8,10 +8,6 @@ public class pessoa {
     
     pessoa(){};
     
-
-    
-    
-    
     public String getNome() {
         return nome;
     }
@@ -82,10 +78,10 @@ public class contato {
     private int numeroCelular;
     
     private pessoa contatoPessoa;
-    private endereco contatoEndereco;
+    private endereco contatoEndereco; // puxando a classe que eu quero e colocando um nome pra ela
     
     contato(){
-        contatoPessoa = new pessoa();
+        contatoPessoa = new pessoa(); // aqui estamos criando uma nova pessoa e um novo endereço ficticio.
         contatoEndereco = new endereco();
     }
     

@@ -1,0 +1,95 @@
+interfaces sempre serao abstract
+
+public interface dirigivel {
+    void dirige();
+}
+
+
+public class carro implements dirigivel{
+    
+    
+    @Override
+    public void dirige() {
+        System.out.println("dirigindo um carro");
+        
+    }
+    
+}
+
+
+public class moto implements dirigivel{
+
+    @Override
+    public void dirige() {
+        System.out.println("dirigindo uma moto");
+    }
+    
+}
+
+
+public class ExempoloInterface {
+
+    public static void main(String[] args) {
+        moto moto1 = new moto();
+        carro carro1 = new carro();
+        
+        carro1.dirige();
+        moto1.dirige();
+        
+        
+    }
+}
+
+
+static ==============
+
+a gente sempre faz assim
+
+ public void devolverItem(item i){
+     i.setNumeroExemplares(i.getNumeroExemplares() +1);
+    }
+
+
+se fizer desse jeito
+
+ public static void devolverItem(item i){
+     i.setNumeroExemplares(i.getNumeroExemplares() +1);
+    }
+
+
+podemos colocar Biblioteca.devolver(variavel criada)
+
+
+
+================
+adiciona somente o static
+
+public class utilitario {
+    public static String capslock(String texto){
+        return texto.toUpperCase();
+    }
+    
+    public static String minusculo(String texto){
+        return texto.toLowerCase();
+    }
+}
+
+public class ExemploStatic {
+
+    public static void main(String[] args) {
+       
+        String texto = "oLa Seja BeM VinDo";
+       //formal normal que fazemos 
+        utilitario texto1 = new utilitario();
+        texto = texto1.capslock(texto);
+        System.out.println(texto);
+        
+        texto = texto1.minusculo(texto);
+        System.out.println(texto); 
+        
+       // forma statica
+       texto = utilitario.capslock(texto);
+       texto = utilitario.minusculo(texto);
+       
+    }
+}

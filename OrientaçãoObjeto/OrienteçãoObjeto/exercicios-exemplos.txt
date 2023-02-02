@@ -1,9 +1,125 @@
 PILARES DA ORIENTAÇÃO:
 
 - ABSTRAÇÃO === 
+public abstract void imprime(); coloca na classe pai
+
+vai puxar um erro nas outras classes, que vai pedir pra incluir algo, inlui e coloca a imprimeMensagem
+dentro  para puxar coisas da classe pai e da classe em si;
+
+exemplo===
+
+public abstract class pessoa {
+    private String nome;
+    private int idade;
+
+    public abstract void imprime();
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
+    
+}
+
+public class funcionario extends pessoa {
+    private int cracha;
+
+    
+    
+    public int getCracha() {
+        return cracha;
+    }
+
+    public void setCracha(int cracha) {
+        this.cracha = cracha;
+    }
+
+    @Override
+    public void imprime() {
+        System.out.println("o funcionario: "+getNome()+" tem "+getIdade()+" anos e o cracha é: "+getCracha());
+    }
+    
+    
+}
+
+public class cliente extends pessoa {
+    private int codigoCliente;
+
+    
+    
+    public int getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
+
+    @Override
+    public void imprime() {
+        System.out.println("o funcionario: "+getNome()+" tem "+getIdade()+" anos e o codigo dele é: "+getCodigoCliente() );
+    }
+    
+    
+}
+
+public class ExercicioAbstracao {
+    public static void imprimePessoa(pessoa p){ ====== esse public é para chamar somente os parametros de pessoa.
+        p.imprime();
+    }
+
+    public static void main(String[] args) {
+        
+        funcionario funcionario1 = new funcionario();
+        
+        funcionario1.setNome("Vanessa");
+        funcionario1.setIdade(20);
+        funcionario1.setCracha(123);
+        
+        imprimePessoa(funcionario1);
+        
+        cliente cliente1 = new cliente();
+        
+        cliente1.setNome("carlos");
+        cliente1.setIdade(36);
+        cliente1.setCodigoCliente(236);
+        
+        imprimePessoa(cliente1);
+        
+    }
+}
+
+
+
+
 - POLIMORFISMO ===
+
+quando fazemos a ABSTRAÇÃO, a classe se transforma de varios jeitos e isso inclui o poli
+no exemplo, conseguimos puxar varios parametrosde mais de uma classe;
+
+@Override
+    public void imprime() {
+        System.out.println("o funcionario: "+getNome()+" tem "+getIdade()+" anos e o codigo dele é: "+getCodigoCliente() );
+    }
+
+
+
+
 - HERANÇA ===
     exercicio exemplo HERANÇA
+
 
 public class veiculo {
     private double velocidade;
