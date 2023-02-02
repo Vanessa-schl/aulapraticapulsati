@@ -1,0 +1,301 @@
+1. Crie uma classe Carro com três variáveis membro: potência, velocidade e marca. Crie duas classes filhas chamadas Sedan e SUV que herdam os atributos da classe Carro. Adicione um método acelerar() às duas classes filhas que simule o comportamento de aceleração dos carros de acordo com suas respectivas potências.
+
+public class carro {
+    private int potencia;
+    private int velocidade;
+    private String marca;
+    
+    
+    
+    public int getPotencia() {
+        return potencia;
+    }
+
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
+    }
+
+    public int getVelocidade() {
+        return velocidade;
+    }
+
+    public void setVelocidade(int velocidade) {
+        this.velocidade = velocidade;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    
+    
+}
+
+
+
+public class sedan extends carro{
+    private int velocidadeSedan;
+    
+  public void acelerar(){
+      setVelocidadeSedan(velocidadeSedan +(getVelocidade() * getPotencia()));
+      System.out.println("velocidade atual: "+getVelocidadeSedan());
+  }
+  public void imprime(){
+        System.out.println("marca: "+getMarca()+", potencia do carro: "+ getPotencia()+", velocidade: "
+        +getVelocidade());
+  
+  }
+  
+
+    public int getVelocidadeSedan() {
+        return velocidadeSedan;
+    }
+
+    public void setVelocidadeSedan(int velocidadeSedan) {
+        this.velocidadeSedan = velocidadeSedan;
+    }
+}
+
+
+
+public class suv extends carro{
+    private int velocidadeSuv;
+
+    public void acelerar(){
+         setVelocidadeSuv(velocidadeSuv + (getVelocidade() * getPotencia()));
+         System.out.println("velocidade atual: "+getVelocidadeSuv());
+    }
+    
+    public void imprime(){
+        System.out.println("marca: "+getMarca()+", potencia do carro: "+ getPotencia()+", velocidade: "
+        +getVelocidade());
+    
+    }
+    
+    
+    public int getVelocidadeSuv() {
+        return velocidadeSuv;
+    }
+
+    public void setVelocidadeSuv(int velocidadeSuv) {
+        this.velocidadeSuv = velocidadeSuv;
+    }
+    
+    
+
+}
+
+
+public class ExercicioGeral1 {
+
+    public static void main(String[] args) {
+        sedan carro1 = new sedan();
+        
+        carro1.setMarca("fiat");
+        carro1.setPotencia(220);
+        carro1.setVelocidade(5);
+        carro1.acelerar();
+        carro1.imprime();
+        
+        suv carro2 = new suv();
+        
+        carro2.setMarca("bmw");
+        carro2.setPotencia(440);
+        carro2.setVelocidade(2);
+        carro2.acelerar();
+        carro2.imprime();
+    }
+}
+
+
+
+2.Crie uma interface Transporte que possui um método move(). Crie duas classes que implementam essa interface: Avião e Trem. Adicione um método para calcular o tempo de viagem para cada classe, usando diferentes algoritmos para calcular a velocidade média (para avião) e tempo de viagem (para trem).
+
+public interface transporte {
+
+    void move();
+}
+
+
+public class trem implements transporte {
+    //velocidade média/hora pela distância (km).
+    private int velocidadeMedia;
+    private int distancia;
+    private double resultado;
+  
+
+    public void tempoViagem(){
+         setResultado(getDistancia() / getVelocidadeMedia());
+    }
+    
+      @Override
+    public void move() {
+        System.out.println("tempo médio de viagem: "+getResultado()+" horas");
+    }
+    
+    
+    
+
+    public int getVelocidadeMedia() {
+        return velocidadeMedia;
+    }
+
+    public void setVelocidadeMedia(int velocidadeMedia) {
+        this.velocidadeMedia = velocidadeMedia;
+    }
+
+    public int getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(int distancia) {
+        this.distancia = distancia;
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(double resultado) {
+        this.resultado = resultado;
+    }
+
+}
+
+
+public class aviao implements transporte {
+    private int velocidadeMedia;
+    private int distancia;
+    private double resultado;
+    
+     public void velocidadeMediaAviao(){
+         setResultado(getDistancia() / getVelocidadeMedia());
+    }
+    
+      @Override
+    public void move() {
+        System.out.println("tempo médio de viagem: "+getResultado()+" horas");
+    }
+
+    public int getVelocidadeMedia() {
+        return velocidadeMedia;
+    }
+
+    public void setVelocidadeMedia(int velocidadeMedia) {
+        this.velocidadeMedia = velocidadeMedia;
+    }
+
+    public int getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(int distancia) {
+        this.distancia = distancia;
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(double resultado) {
+        this.resultado = resultado;
+    }
+    
+    
+    
+    
+}
+
+
+public class ExerciciosGeral2 {
+
+    public static void main(String[] args) {
+        trem viagem1 = new trem();
+        
+        viagem1.setDistancia(400);
+        viagem1.setVelocidadeMedia(80);
+        viagem1.tempoViagem();
+        viagem1.move();
+        
+        aviao viagem2 = new aviao();
+        
+        viagem2.setDistancia(800);
+        viagem2.setVelocidadeMedia(300);
+        viagem2.velocidadeMediaAviao();         
+        viagem2.move();
+        
+    }
+}
+
+
+3.  Crie ua classe abstrata chamada Reptil que herde da classe Animal e adicione um método abstrato para imprimir a temperatura corporal destes animais.
+Crie uma classe chamada Cobra que herde da classe Reptil e adicione um método para imprimir se a cobra é venenosa ou não.
+
+
+public abstract class reptil extends animal{
+    
+    public abstract void temperaturaCorpoal();
+}
+
+
+public class cobra extends reptil {
+    private int temperatura;
+    
+    
+    public void veneno(boolean venenosa){
+        if(venenosa == true){
+            System.out.println("cobra é venenosa");
+        }else{
+            System.out.println("cobra não é venenosa");
+        }
+        
+    }
+    
+    @Override
+    public void temperaturaCorpoal() {
+        System.out.println("a cobra: "+getNome()+", temperatura corporal dela: "+getTemperatura());
+    }
+
+    public int getTemperatura() {
+        return temperatura;
+    }
+
+    public void setTemperatura(int temperatura) {
+        this.temperatura = temperatura;
+    }
+
+}
+
+
+public class animal {
+    private String nome;
+
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+}
+
+
+public class ExerciciosGeral3 {
+
+    public static void main(String[] args) {
+        cobra cobra1 = new cobra();
+        
+        cobra1.setNome("cascavel");
+        cobra1.veneno(true);
+        cobra1.setTemperatura(5);
+        cobra1.temperaturaCorpoal();
+        
+    }
+}
+
+

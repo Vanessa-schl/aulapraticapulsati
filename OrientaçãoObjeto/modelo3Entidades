@@ -1,0 +1,12 @@
+modelo 3 entidades
+
+dao(data acess object) objeto de acesso a dados
+
+
+
+dto(data transfer object) objeto para transferencia de dados - tem os mesmos atributos que a tabela de banco de dados, junto com o encapsulamento
+
+
+
+
+view(tela) pode ser javafx ou javaswing
