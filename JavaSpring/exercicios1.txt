@@ -1,0 +1,22 @@
+Crie uma aplicação de gerenciamento de contatos:
+   1 •   Crie uma classe de modelo para representar os contatos.
+    •   Implemente um controlador que permita adicionar, editar, exibir e excluir contatos.
+    •   Armazene os contatos em memória usando o Spring Data.
+
+
+
+
+
+    2   Crie uma aplicação de gerenciamento de tarefas:
+    •   Crie uma classe de modelo para representar as tarefas.
+    •   Implemente um controlador que permita adicionar, editar, exibir e excluir tarefas.
+    •   Armazene as tarefas em memória usando o Spring Data.
+
+
+
+
+    
+    3   Crie uma aplicação de gerenciamento de produtos:
+    •   Crie uma classe de modelo para representar os produtos.
+    •   Implemente um controlador que permita adicionar, editar, exibir e excluir produtos.
+    •   Armazene os produtos em memória usando o Spring Data.
