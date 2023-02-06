@@ -1,0 +1,12 @@
+sempre que no codigo tiver requestbody quer dizer que no postaman, ele vai pedir
+o corpo, exmeplo:
+
+{
+    "id": 5,
+    "nome": "rodrigo",
+    "idade": 42,
+    "codCadastro": 127
+}
+
+Ir no body e colocar o exemplo de cima
+coloca o corpo como RAW e JSON 

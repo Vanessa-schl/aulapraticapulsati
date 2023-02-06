@@ -1,0 +1,121 @@
+===== primeiro o modelo
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data // criar os get e sets
+@AllArgsConstructor // para criar um construtor
+public class clienteModel {
+
+    private int id;
+
+    private String nome;
+    private int idade;
+    private int codCadastro;
+
+
+}
+
+
+===== depois o repositorio
+
+import com.example.demo.model.clienteModel;
+import java.util.ArrayList;
+import java.util.List;
+
+public class clienteRepository {
+    List<clienteModel> clientes = new ArrayList<>();
+
+    public clienteRepository(){
+        clientes.add(new clienteModel(1,"vanessa",20,123));
+        clientes.add(new clienteModel(2,"lucas",21,124));
+        clientes.add(new clienteModel(3,"maria",25,125));
+        clientes.add(new clienteModel(4,"luana",35,126));
+        clientes.add(new clienteModel(5,"rodrigo",42,127));
+
+    }
+
+    public void addCliente(clienteModel cliente) { //adicionar cliente
+
+        clientes.add(cliente);
+    }
+
+    public List<clienteModel> getClientes() {  //listar clientes
+        return clientes;
+
+    }
+
+    public void deleteCliente(clienteModel cliente) { // deletar um cliente
+        clientes.remove(cliente);
+
+    }
+
+    public void updateCliente(clienteModel cliente) { //fazer update do usuario
+        for (clienteModel c : clientes) {
+            if (c.getId() == cliente.getId()) {
+                c.setNome(cliente.getNome());
+                c.setIdade(cliente.getIdade());
+                c.setId(cliente.getId());
+                c.setCodCadastro(cliente.getCodCadastro());
+            }
+        }
+
+    }
+
+    public clienteModel getClienteByID(int id) {  //pegar um usuario em questao
+        for (clienteModel c : clientes) {
+            if (c.getId() == id) {
+                return c;
+            }
+        }
+
+        return null;
+    }
+}
+
+
+
+
+====== enfim o controle
+
+import com.example.demo.repository.clienteRepository;
+import com.example.demo.model.clienteModel;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
+@RestController
+@RequestMapping("/cliente") // em todos os mapeamentos vai ser o cliente na frente. ex: localhost: 8080/cliente/addCliente
+public class clienteController {
+
+    private  clienteRepository clienteRepository = new clienteRepository();
+
+    @GetMapping("/buscar")
+    public ResponseEntity <List<clienteModel>> getClientes(){
+        return ResponseEntity.ok(clienteRepository.getClientes());
+    }
+
+    @PostMapping("/add") //adicionar cliente
+    public void addCliente(@RequestBody clienteModel cliente){ //request olha o corpo(clientemodel), e presume um retorno, quando volta confirma se e´realmente aquilo
+        clienteRepository.addCliente(cliente);
+    }
+
+    @DeleteMapping("/deletar") //deleta cliente
+        public void deletaCliente(@RequestBody clienteModel cliente){
+            clienteRepository.deleteCliente(cliente);
+    }
+
+    @PutMapping("/atualizar")
+        public void upadateCliente(@RequestBody clienteModel cliente){
+            clienteRepository.updateCliente(cliente);
+    }
+
+    @GetMapping("/buscar/{id}") //buscar um cliente pelo id
+    public ResponseEntity<clienteModel> getClienteByID(@PathVariable int id){ // o path serve para que o codigo saiba que tem que pegar o id na propria requisição {};
+        return ResponseEntity.ok(clienteRepository.getClienteByID(id));
+    }
+
+
+}
