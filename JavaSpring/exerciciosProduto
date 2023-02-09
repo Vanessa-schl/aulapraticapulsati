@@ -1,0 +1,180 @@
+====================model
+
+package com.example.Produtos.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+import org.hibernate.validator.constraints.Range;
+
+@Data
+@Table(name = "VANE_PRODUTOS")
+@Entity
+public class produtoModel {
+
+    @Id
+    @Column (name = "ID_PRODUTO")
+    private int idProduto;
+
+    @Size(min = 4, max = 100)
+    @Column (name = "NOME_PRODUTO")
+    private String nomeProduto;
+
+    @Column (name = "DESCRICAO_PRODUTO")
+    private String descricaoProduto;
+
+    @NotBlank
+    @Column (name = "CATEGORIA")
+    private String categoria;
+
+    @Column (name = "FABRICANTE")
+    private String fabricante;
+
+    @Column (name = "FORNECEDOR")
+    private String fornecedor;
+
+    @Range(min = 1, message = "preço unitario deve ser maior que 0")
+    @Column (name = "PRECO_UNITARIO")
+    private double precoUnitario;
+
+    @Range(min = 1, message = "quantidade deve ser maior que 0")
+    @Column (name = "UNIDADES_ESTOQUE")
+    private int unidadesEstoque;
+
+}
+
+
+
+=============repository
+
+
+
+
+package com.example.Produtos.Repository;
+
+import com.example.Produtos.model.produtoModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface produtoRepository extends JpaRepository<produtoModel, Integer> {
+
+    @Query (value = "SELECT * FROM VANE_PRODUTOS WHERE UNIDADES_ESTOQUE > 1", nativeQuery = true)
+    public List<produtoModel> findAll();
+
+    @Query (value = "SELECT * FROM VANE_PRODUTOS WHERE UPPER(NOME_PRODUTO) LIKE 'M%'", nativeQuery = true)
+    public List<produtoModel> encontraNomeProduto();
+
+    @Query (value = "SELECT * FROM VANE_PRODUTOS WHERE UPPER(DESCRICAO_PRODUTO) LIKE 'M%'", nativeQuery = true)
+    public List<produtoModel> encontraDescricaoProduto();
+
+    @Query (value = "SELECT * FROM VANE_PRODUTOS WHERE CATEGORIA = ?1", nativeQuery = true)
+    public List<produtoModel> encontraCategoriaProduto(String CATEGORIA);
+
+    @Query (value = "SELECT * FROM VANE_PRODUTOS WHERE FORNECEDOR = ?1", nativeQuery = true)
+    public List<produtoModel> encontraFornecedorProduto(String FORNECEDOR);
+
+    @Query (value = "SELECT * FROM VANE_PRODUTOS WHERE FABRICANTE = ?1", nativeQuery = true)
+    public List<produtoModel> encontraFabricanteProduto(String FABRICANTE);
+
+
+}
+
+
+======================================controller
+
+
+package com.example.Produtos.controller;
+
+import com.example.Produtos.Repository.produtoRepository;
+import com.example.Produtos.model.produtoModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/produtos")
+public class produtoController {
+
+    @Autowired
+    private produtoRepository repository; // para melhorar a sugestao
+
+    @GetMapping("/buscar")
+    public List<produtoModel> buscarTodos() {
+        return repository.findAll();
+    }
+
+    @GetMapping("/buscar/{id}")
+    public produtoModel buscarPorId(@PathVariable int id) {
+        return repository.findById(id).get();
+    }
+
+    @PostMapping("/add")
+    public produtoModel add(@RequestBody @Validated produtoModel produto) {
+        return repository.save(produto);
+    }
+
+    @PutMapping("/atualizar")
+    public produtoModel atualizar(@RequestBody @Validated produtoModel produto) {
+        return repository.save(produto);
+    }
+
+    @DeleteMapping("/deletar/{id}")
+    public void deletar(@PathVariable int id) {
+        repository.deleteById(id);
+    }
+
+    //Somente os produtos com estoque
+    // superior a 0(Criar um get separado);
+
+    @GetMapping("/buscarUnidade")
+    public List<produtoModel> buscarEstoque() {
+        return repository.findAll(); // usar o greaterThan(numero que queremos que seja maior)
+    }
+
+    //Buscar por nome_produto usando o like do sql e ignorando
+    // o case usando o UPPER(Criar um get separado);
+
+    @GetMapping("/buscarNomeiniciacomM")
+    public List<produtoModel> buscarPorNomeProduto() { // usar o containIgnoreCase();
+        return repository.encontraNomeProduto();
+    }
+
+    //Buscar por descricao usando o like do sql e ignorando
+    // o case usando o UPPER(Criar um get separado);
+
+    @GetMapping("/buscarDescricaoiniciacomM")
+    public List<produtoModel> buscarPorDescricaoProduto() {
+        return repository.encontraDescricaoProduto();
+    }
+
+    //Buscar por categoria(Criar um get separado);
+
+    @GetMapping("/categoria/{CATEGORIA}")
+    public List<produtoModel> buscarPorCategoria(@PathVariable String CATEGORIA) {
+        return repository.encontraCategoriaProduto(CATEGORIA);
+    }
+
+    //Buscar por fornecedor(Criar um get separado);
+
+    @GetMapping("/fornecedor/{FORNECEDOR}")
+    public List<produtoModel> buscarPorFornecedor(@PathVariable  String FORNECEDOR) {
+        return repository.encontraFornecedorProduto(FORNECEDOR);
+    }
+
+    //Buscar por fabricante(Criar um get separado);
+
+    @GetMapping("/fabricante/{FABRICANTE}")
+    public List<produtoModel> buscarPorFabricante(@PathVariable  String FABRICANTE) {
+        return repository.encontraFabricanteProduto(FABRICANTE);
+
+    }
+}
+
