@@ -28,3 +28,12 @@ exports.salvarArquivo = (nomeArquivo, conteudo) =>{
     });return promessa;
   };
 
+  exports.deletarArquivo = (nomeArquivo) => {
+    const promessa = new Promise((reject) =>{
+         fs.unlink(nomeArquivo, (erro) => {
+            if (erro) {
+                 reject(erro);
+                 } else { console.log("Arquivo deletado com sucesso");}
+                 });
+                });
+                 return promessa;};
