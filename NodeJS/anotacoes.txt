@@ -1,0 +1,29 @@
+LET = PODE MUDAR;
+CONST = N MUDA;
+
+== só pegar o conteudo e compara, n olha qual o tipo;
+=== - compara totalmente;
+!=  diferente, igual o == ;
+!== diferente, igual o ===;
+
+
+biblioteca = require('fs') = para interagir com o sitema   fs=fileSystem
+
+- callback = verifica se o dado existe
+
+- promise
+
+- .push
+
+-.then = quando terminar o promise, chamamos o .then(() => console.log("programa funalizado"))
+
+-callback
+
+-await/async = obrigada que espere o resultado
+
+-res.end = enviar conteudo
+
+- listen = qual porta  gente vai ficar
+
+-
+

@@ -1,0 +1,39 @@
+dependencias spring:
+
+spring web
+lombok
+spring data jpa
+oracle driver
+validation
+
+=====
+controllers = endpoint
+
+====
+generics = pode ser qualquer letra
+options 
+autowired 
+isPresente()
+===================
+
+manyToOne = muitos para um
+ex: muitos estados para um pais
+ 
+@notblank = validacao, para que o usuario n passe em branco um informacao
+@size(min =2 , max = 100, messagem = "" = pode ser de 2 até 100 caracteres, em forma de caracter
+@Range(min = 1, max = 100) = para ser passada de um numero até tal, em forma de numero
+@notnull
+@validated = para puxar a validação acima
+@joincolumn = para usar com fk
+@email = a variavel tem que ter a palavra email em especifico
+
+
+ver o que é o long
+
+
+=========== aplicativos usados até agora ================
+
+vscode - logica de programação
+oracleSQL - banco de dados
+netbeans - orientação a objeto
+intelliJ idea - javaSpring - com o itelliJ podemos usar o aplicativo postman
