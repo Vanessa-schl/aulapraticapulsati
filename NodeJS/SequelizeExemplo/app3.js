@@ -34,6 +34,8 @@ sequelize.sync();
 const express = require('express');
 const app = express();
 app.use(express.json());
+
+
 app.post('/usuarios', async (req, res) => {
   const { nome, sobrenome } = req.body;
   const usuario = new Usuario();
@@ -42,11 +44,15 @@ app.post('/usuarios', async (req, res) => {
   await usuario.save();
   res.json(usuario);
 });
+
+
 app.get('/usuarios/:codigo', async (req, res) => {
   const codigo = req.params.codigo;
   const usuario = await Usuario.findByPk(codigo);
   res.json(usuario);
 })
+
+
 app.put('/usuarios/:codigo', async (req, res) => {
   const codigo = req.params.codigo;
   const usuario = await Usuario.findByPk(codigo);
@@ -56,6 +62,8 @@ app.put('/usuarios/:codigo', async (req, res) => {
   await usuario.save();
   res.json(usuario);
 });
+
+
 app.delete('/usuarios/:codigo', async (req, res) => {
   const codigo = req.params.codigo;
   const usuario = await Usuario.findByPk(codigo);
