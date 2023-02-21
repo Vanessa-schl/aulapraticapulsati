@@ -1,7 +1,7 @@
 const Produto = require('../model/produtoModel').Produto;
 
 exports.createProduto = async (req, res) => {
-    const {nomeProduto,marcaProduto,descricaoProduto,valorProduto} = req.body;
+    const {nomeProduto,marcaProduto,descricaoProduto,valorProduto,quantidadeEstoque} = req.body;
     const usuario = new Produto();
     usuario.nomeProduto = nomeProduto;
      usuario.marcaProduto = marcaProduto;
@@ -19,7 +19,7 @@ exports.getProdutos = async (req, res) => {
 exports.updateProduto = async (req, res) => {
     const codigo = req.params.codigo;
     const usuario = await Produto.findByPk(codigo);
-    const {nomeProduto,marcaProduto,descricaoProduto,valorProduto} = req.body;
+    const {nomeProduto,marcaProduto,descricaoProduto,valorProduto,quantidadeEstoque} = req.body;
     usuario.nomeProduto = nomeProduto;
     usuario.marcaProduto = marcaProduto;
     usuario.descricaoProduto = descricaoProduto;

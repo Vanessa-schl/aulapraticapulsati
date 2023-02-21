@@ -24,9 +24,13 @@ Produto.init({
         type: DataTypes.NUMBER,
         allowNull: false
     },
+    quantidadeEstoque:{
+        type: DataTypes.NUMBER,
+        allowNull: false
+    }
 },{
     sequelize: dbConfig(),
-    modelName: 'v_prod',
+    modelName: 'v_prods2',
     timestamps: false
 });
 

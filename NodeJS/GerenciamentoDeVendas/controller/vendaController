@@ -1,0 +1,54 @@
+const { Sequelize } = require('sequelize');
+
+const Produto = require('../model/produtoModel').Produto;
+const Venda = require('../model/vendasModel').Venda;
+
+exports.createVenda = async (req,res) => {
+    const {codigoProduto,codigoVendedor,quantidadeVendida} = req.body;
+
+    try{
+        const estoque = await Produto.findOne({where: {codigoProduto}});
+        if(!estoque || estoque.quantidadeEstoque < quantidadeVendida){
+            return res.status(400).send("produto n encontrado ou não há o suficiente")
+        }
+        await Venda.create({codigoProduto,codigoVendedor,quantidadeVendida});
+        estoque.quantidadeEstoque -= quantidadeVendida;
+        await estoque.save();
+        res.send('Venda registrada com sucesso');
+    }
+    catch(err) {
+        console.error(err);
+        res.status(500).send("ocorreu um erro ao registrr a venda")
+    }
+
+    exports.getVenda = async (req,res) => {
+        const venda = await Venda.findAll({
+        order: [['codigoVenda', 'DESC']]
+     });
+     res.json(venda);
+}
+    exports.GetMenor = async (req,res) =>{
+        const produtos = await Produto.findAll({
+            where: {
+                quantidadeEstoque: {[Sequelize.Op.lt]: 10}}})            
+                res.json(produtos);        
+            }
+
+    exports.updateVenda = async (req,res)=>{
+        const codigo = req.params.codigo;
+        const usuario = await Venda.findByPk(codigo);
+        const {codigoProduto,codigoVendedor,quantidadeVendida} = req.body;
+        usuario.codigoProduto = codigoProduto;
+        usuario.codigoVendedor = codigoVendedor;
+        usuario.quantidadeVendida = quantidadeVendida;
+        await usuario.save();
+        res.json(usuario);
+    }
+
+    exports.deleteVenda = async (req,res)=> {
+        const codigo = req.params.codigo;
+        const usuario = await Venda.findByPk(codigo);
+        await usuario.destroy();
+        res.json({data: "venda deletado com sucesso"})
+    }
+    }
