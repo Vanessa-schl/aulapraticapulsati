@@ -1,0 +1,13 @@
+button {
+    background-color: blueviolet;
+    color: black;
+    font-size: 25px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+button:hover{
+    background-color: black;
+    color: blueviolet;
+}

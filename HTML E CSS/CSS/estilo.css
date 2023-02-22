@@ -1,0 +1,37 @@
+body{
+    background-color: gray;
+}
+
+div h2{
+    font-size: 80px;
+    font-family: sans-serif;
+    color: aquamarine;
+}
+
+div > p {
+    font-size: 50px;
+    font-family: sans-serif;
+    color: blueviolet;
+}
+
+.divisao2 p{
+    color: brown;
+}
+
+img{
+    width: 50%;
+    height: auto;
+}
+
+div{
+    width: 700px;
+}
+
+button{
+    width: 300px;
+    height: 30px;
+    background-color: violet;
+    color: aliceblue;
+    border: 2px solid rebeccapurple;
+    border-radius: 10px;
+}

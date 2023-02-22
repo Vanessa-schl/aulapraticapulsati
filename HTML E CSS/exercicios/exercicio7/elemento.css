@@ -1,0 +1,8 @@
+input{
+    background-color: aqua;
+}
+
+input:hover{
+    transition: 0.5s ease-in;
+    opacity: 0;
+}
