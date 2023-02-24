@@ -12,6 +12,9 @@ header{
     border-bottom: 1px solid rgb(204, 203, 203);
 }
 
+.logo2{
+    display: none;
+}
 .logo{
     border-right: 1px solid rgb(197, 195, 195);
     padding: 12px;
@@ -51,9 +54,14 @@ header{
     background-color: rgb(10, 240, 240);
 }
 
+.iconInvertido{
+    display: none;
+}
+
 .icons{
     margin-right: 20px;
 }
+
 
 /* =================Main================================= */
 
@@ -65,7 +73,9 @@ main{
     background-color: rgb(233, 232, 232);
 }
 
-
+.imagemTela1{
+    display: none;
+}
 .imagemTela{
     display: flex;
     flex-direction: row;
@@ -156,3 +166,383 @@ main{
     background-color: white;
     color: rgb(17, 52, 82);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ refatorando========== */
+
+@media screen and (max-width:766px){
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgb(204, 203, 203);
+    }
+
+    .logo2{
+        display: flex;
+        padding: 12px;
+    }
+    .logo{
+        display: none;
+    }
+
+    .setinha{
+        display: none;
+    }
+
+    .superiorEsquerda{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+        margin: 5px;
+        align-items: center;
+       
+    }
+
+    .casos{
+        display: none;
+    }
+
+    .carreiras{
+        display: none;
+    }
+    
+    .superiorDireita{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 15px;
+        margin: 5px;
+        align-items: center;
+    }
+    
+    .botaoConta{
+        display: none;
+    }
+    
+    .botaoConta:hover{ 
+        background-color: rgb(10, 240, 240);
+    }
+
+    .iconInvertido{
+        display: none;
+    }
+    
+    .icons{
+        margin-right: 20px;
+    }
+
+
+    /* =========main========= */
+
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(233, 232, 232);
+     
+    }
+    
+    .imagemTela1{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        width: 450px;
+        margin-top: 50px; 
+        margin-right: 30px;
+        margin-left: 20px;
+    }
+
+    .imagemTela{
+        display: none;
+    }
+    
+    .textos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 15px;
+    }
+    
+    .h1{
+        display: flex;
+        font-size: 43px;
+        font-weight: 600;
+        align-items: center;
+    }
+    
+    .pt5{
+        font-size: 26px;
+        font-weight: 600;
+        padding-top: 35px;
+    }
+    
+    .pt1{
+        margin: 10px;
+        padding: 0;
+        font-size: 25px;
+        color: rgb(63, 62, 62);
+    }
+    
+    .pt3{
+        margin: 15px;
+        font-size: 25px;
+        color: rgb(63, 62, 62);
+    }
+    
+    .pt4{
+        margin: 15px;
+        font-size: 25px;
+        color: rgb(63, 62, 62);
+    }
+    
+    .botoes{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 40px;
+    }
+    
+    .botao1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(17, 52, 82);
+        color: white;
+        height: 50px;
+        width: 180px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    
+    .botao1:hover{
+        background-color: white;
+        color: rgb(17, 52, 82);
+    }
+    
+    .botao2{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(17, 52, 82);
+        color: white;
+        height: 50px;
+        width: 180px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    
+    .botao2:hover{
+        background-color: white;
+        color: rgb(17, 52, 82);
+    }
+    
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 579px) {
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgb(204, 203, 203);
+    }
+
+    .logo2{
+        display: flex;
+        padding: 12px;
+    }
+    .logo{
+        display: none;
+    }
+
+    .setinha{
+        display: none;
+    }
+
+    .superiorEsquerda{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+        margin: 5px;
+        align-items: center;
+       
+    }
+
+    .casos{
+        display: none;
+    }
+
+    .carreiras{
+        display: none;
+    }
+    
+    .superiorDireita{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 15px;
+        margin: 5px;
+        align-items: center;
+    }
+    
+    .botaoConta{
+        display: none;
+    }
+    
+    .botaoConta:hover{ 
+        background-color: rgb(10, 240, 240);
+    }
+    .iconInvertido{
+        display: flex;
+        margin-right: 15px;
+    }
+    .icons{
+        display: none;
+    }
+
+
+    /* =========main========= */
+
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(233, 232, 232);
+     
+    }
+    
+    .imagemTela1{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        width: 450px;
+        margin-top: 50px; 
+        margin-right: 30px;
+        margin-left: 20px;
+    }
+
+    .imagemTela{
+        display: none;
+    }
+    
+    .textos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 15px;
+    }
+    
+    .h1{
+        display: flex;
+        font-size: 43px;
+        font-weight: 600;
+        align-items: center;
+    }
+    
+    .pt5{
+        font-size: 26px;
+        font-weight: 600;
+        padding-top: 35px;
+    }
+    
+    .pt1{
+        margin: 10px;
+        padding: 0;
+        font-size: 25px;
+        color: rgb(63, 62, 62);
+    }
+    
+    .pt3{
+        margin: 15px;
+        font-size: 25px;
+        color: rgb(63, 62, 62);
+    }
+    
+    .pt4{
+        margin: 15px;
+        font-size: 25px;
+        color: rgb(63, 62, 62);
+    }
+    
+    .botoes{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 40px;
+    }
+    
+    .botao1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(17, 52, 82);
+        color: white;
+        height: 50px;
+        width: 180px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    
+    .botao1:hover{
+        background-color: white;
+        color: rgb(17, 52, 82);
+    }
+    
+    .botao2{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(17, 52, 82);
+        color: white;
+        height: 50px;
+        width: 180px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    
+    .botao2:hover{
+        background-color: white;
+        color: rgb(17, 52, 82);
+    }
+    
+}    
+

@@ -1,0 +1,29 @@
+body{
+    height: 200vh;
+}
+
+.caixa{
+    width: 500px;
+    height: 500px;
+    color: sienna;
+    margin: 20px;
+}
+
+.fixed{
+    /* top, left, rigth, bottom         transform: translate(valor1,valor2)  === baseado na tela */
+    position: fixed;
+    top: 0;
+}
+
+.relative{
+    /* position relative = baseado na posicao original */
+    position: relative;
+}
+
+.absolute{
+    position: absolute; 
+    /* move o item absoluto pode ficar em cima de imagens e tudo mais */
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
