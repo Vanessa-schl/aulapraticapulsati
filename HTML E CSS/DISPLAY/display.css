@@ -1,0 +1,23 @@
+p:nth-child(2){
+    display: inline-block;  
+}
+.caixa{
+    max-width: 700;
+    height: 500;
+    background-color: blue;
+
+    display: flex;
+    /* são obrigatorias do display flex*/
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;  /* espaço entre as palavras*/
+    flex-wrap: wrap;/*quebrar a linha*/
+    flex-direction: column;/*colocar os itens um abaixo do outro*/
+}
+
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 100px;
