@@ -1,0 +1,167 @@
+// verificar o tipo da variavel
+
+let nome = 'vanessa';
+console.log(typeof nome);
+
+// conversoes de tipo
+
+let numero1 = '1';
+let numero2 = 2;
+
+parseInt(numero1);
+parseFloat(numero2);
+
+String(numero2);
+Number(numero1);
+
+// classe matematica
+
+//Math.funcao
+
+//diferenca entre o == e ===
+// 1 e '1'
+
+// ==  da true pq oq ta escrito dentro de uma variavel é igual
+
+//=== da false pq é o mesmo numero  mas o tipo é diferente
+
+// arrow functions
+
+function name(){}
+const somar = () => {};
+somar();
+
+//sempre faziamos assim
+if(nome2.length > 5){
+    console.log("mairo que 5")
+}else{
+    console.log('menor que 5')
+}
+//operador ternario
+//if                            //true                          //falso
+nome2.length > 5 ? console.log('maior que 5') : console.log('menor dque 5');
+
+
+//for in e for off
+
+let frutas = ['banana', 'maçã', 'uva', 'laranja'];
+
+for(let i =0, i<frutas.length, i++){
+        frutas[i];
+    }
+
+    //for in
+
+for(const indice in frutas){
+    console.log(frutas[indice]);
+}
+
+for(const fruta of frutas){
+    console.log(fruta); //só pega o dado pra fazer alguma verificação, n conseguimos mudar nd
+}
+
+
+
+//concatenar (o +)
+
+let empresa = "pulsati";
+empresa = empresa.concat('desenvolvimento web');
+
+
+//charAt
+
+let primeiraLetra = empresa.charAt(0); //pega a letra do indice especificado
+
+//indexOf
+
+let posicaoDoI = empresa.indexOf('ti'); // encontra a posicao da letra
+
+//trim
+
+let empresaLimpa = empresa.trim(); //tira o espaço dos cantos
+
+//substring
+
+let escola = 'luiz delfino';
+
+let primeiroNome = escola.substring(0,4); //vai pegar do i 0 ao i 4
+
+let ultimoNome = escola.substring(5);
+
+
+//split
+
+let linha = 'vanessa;vane@gmail.com;992934564';
+let dados = linha.split(';');  //pega as posições 0,1,2
+//corta as coisas
+console.log(dados[0]);
+console.log(dados[1]);
+console.log(dados[2]);
+
+//join
+//juntas tudo
+dados[0] = 'jose'
+let linhaAlterada = dado.join(';');
+
+//startWith e endWith
+
+//se termina com alguma coisa ou começa com algo
+
+let escola2 = 'Apex';
+
+escola2.startsWith('A'); //comça com a? sim
+escola2.endsWith('x');//termina com x? sim
+escola2.endsWith('e');//n termina com e 
+
+
+//toupperCase toLowerCase
+
+let nome3 = 'vanessa';
+
+nome3.toUpperCase();
+nome3.toLowerCase();
+
+//replace
+
+nome3.replace('ssa', 'sa') //iria ficar vanesa
+
+//arrays
+
+let nomes =[];
+
+nomes.push('vanessa');
+nomes.push('bruna');
+nomes.push('maria');
+nomes.splice(0, 1); //deleta o primeiro elemento
+
+nomes.pop(); //deleta o maior indice
+
+//sort
+
+let nomesOrdenados = nomes.sort().reverse();
+
+//com numero a gente ordena:
+
+let numeros = [10,1,20,50,5,70,1,90];
+
+let numerosOrdenados = numeros.sort((a,b) =>{
+    return a - b;
+}); 
+
+//map - retorna uma nova array com as especificações do array q pedimos
+let numeros2 = [1,2,3,4,5,6,7,8,9,10];
+let numerosMultiplicados = numeros2.map((numero) => {
+    return numero * 2;
+})
+
+//filter
+let numerosPares = numeros2.filter((numeros) => {
+    return numeros % 2 === 0;
+})
+
+//sum
+
+let existeAlgumPar = numeros2.some((numero) => {
+    return numero % 2 === 0;
+});
+

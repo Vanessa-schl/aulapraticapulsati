@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Exemplo de adicionar e remover atributos com JavaScript</title>
+  </head>
+  <body>
+    <div id="meu-elemento">Este é o meu elemento</div>
+    <button onclick="adicionarAtributo()">Adicionar atributo</button>
+    <button onclick="removerAtributo()">Remover atributo</button>
+
+    <script>
+      function add(elemento, atributo, valor) {
+        elemento.setAttribute(atributo, valor);
+      }
+
+      function removeAtributo(elemento, atributo) {
+        elemento.removeAttribute(atributo);
+      }
+
+      function adicionarAtributo() {
+        let meuElemento = document.getElementById("meu-elemento");
+        add(meuElemento, "style", "color: red;");
+      }
+
+      function removerAtributo() {
+        let meuElemento = document.getElementById("meu-elemento");
+        removeAtributo(meuElemento, "style");
+      }
+    </script>
+  </body>
+</html>

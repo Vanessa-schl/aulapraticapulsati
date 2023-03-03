@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alterar valor de atributo de elemento HTML</title>
+</head>
+<body>
+    <!--  Crie um botão e use o método addEventListener para adicionar um evento 
+        de clique que altere o valor de um atributo de um elemento HTML. -->
+        
+	<p id="myParagraph" class="highlighted">Este é um parágrafo com atributo.</p>
+	<button id="myButton">Alterar valor do atributo</button>
+
+	<script>
+		// Seleciona o botão e o parágrafo
+		var button = document.getElementById("myButton");
+		var paragraph = document.getElementById("myParagraph");
+
+		// Adiciona o evento de clique ao botão
+		button.addEventListener("click", function() {
+			// Altera o valor do atributo "class" do parágrafo
+			paragraph.setAttribute("class", "new-class");
+		});
+	</script>
+</body>
+</html>

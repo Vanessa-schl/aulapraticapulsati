@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um menu select com as opções (vermelho,
+         azul, verde) e crie uma Div abaixo.
+          Sempre que você mudar o valor deste campo
+           a div deverá mudar a cor para a escolhida
+            no select -->
+
+        <p>Selecione a cor que você quer para o seu texto</p>
+        <select id="opcao" onchange="mudarCor()">
+            <option value="vermelho">Vermelho</option>
+            <option value="azul">Azul</option>
+            <option value="verde">Verde</option>
+        </select>
+
+        <div id="div"></div>
+
+
+        <style>
+            #div{
+                height: 100px;
+                width: 100px;
+                border: 1px solid black;
+                margin-top: 10px;
+            }
+        </style>
+    <script src="./ex6.js"></script>
+</body>
+</html>

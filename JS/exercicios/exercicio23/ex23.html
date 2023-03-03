@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alterar atributo de elemento HTML</title>
+</head>
+<body>
+    <!--  Crie uma função que, quando chamada, altere o valor de um atributo de um elemento HTML. -->
+	<p id="myParagraph">Este é um parágrafo com um ID</p>
+	<button onclick="changeAttribute()">Alterar atributo</button>
+
+	<script>
+		function changeAttribute() {
+			var p = document.querySelector("#myParagraph");
+			p.textContent = "Este é um novo parágrafo com um ID";
+		}
+	</script>
+</body>
+</html>

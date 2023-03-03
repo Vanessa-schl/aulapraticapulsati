@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um select que terá 5 valores cada um com uma url
+         de algum video do youtube (utilizar videos embed) 
+         e crie uma tag de video e sempre que você trocar o
+          select deverá trocar o link do video -->
+
+          <h1>Escolha 1 Vídeo do YouTube</h1>
+          <select id="meus-videos" onchange="trocarVideo()">
+            <option value="https://www.youtube.com/embed/ebBfd_q80pE" class="option">Vídeo 1</option>
+            <option value="https://www.youtube.com/embed/BwSQyuUxYfI">Vídeo 2</option>
+            <option value="https://www.youtube.com/embed/EykGVAmwruw">Vídeo 3</option>
+            <option value="https://www.youtube.com/embed/HGA3AU2nCoI">Vídeo 4</option>
+            <option value="https://www.youtube.com/embed/sFGn336gkCA">Vídeo 5</option>
+          </select>
+          <br>
+      
+          <iframe id="meu-video" width="560" height="315" src="https://www.youtube.com/embed/ebBfd_q80pE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          
+          
+          
+          <script>
+            function trocarVideo() {
+              const select = document.getElementById("meus-videos");
+              const video = document.getElementById("meu-video");
+              video.setAttribute("src", select.value);
+            }
+          </script>
+      
+          <style>
+              body {
+                  display: flex;
+                  justify-content: center;
+                  flex-direction: column;
+                  align-items: center;
+              }
+              h1{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+              }
+      
+      
+          </style>
+</body>
+</html>

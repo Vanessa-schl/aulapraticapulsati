@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adicionar Elemento HTML como filho de outro Elemento HTML</title>
+</head>
+<body>
+
+	<!-- . Crie uma função que, quando chamada, adicione um novo elemento HTML 
+		como filho de outro elemento HTML existente. -->
+	<div id="container">
+		<p>Este é um parágrafo dentro do contêiner.</p>
+	</div>
+	<button onclick="adicionarElemento()">Adicionar Elemento</button>
+
+	<script>
+		function adicionarElemento() {
+			var novoElemento = document.createElement("p"); // Cria um novo elemento 'p'
+			var texto = document.createTextNode("Este é um novo parágrafo adicionado como filho do contêiner."); // Cria um novo texto para o elemento 'p'
+			novoElemento.appendChild(texto); // Adiciona o texto ao elemento 'p'
+			var container = document.getElementById("container"); // Seleciona o elemento 'div' pelo ID
+			container.appendChild(novoElemento); // Adiciona o novo elemento 'p' como filho do elemento 'div'
+		}
+	</script>
+</body>
+</html>
+

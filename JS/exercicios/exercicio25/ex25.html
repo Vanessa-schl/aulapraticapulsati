@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Remover atributo de elemento HTML</title>
+</head>
+<body>
+
+    <!--  Crie um botão e use o método addEventListener para adicionar um evento de 
+        clique que remova um atributo de um elemento HTML. -->
+        
+	<p id="myParagraph" class="highlighted">Este é um parágrafo com atributo.</p>
+	<button id="myButton">Remover atributo</button>
+
+	<script>
+		// Seleciona o botão e o parágrafo
+		var button = document.getElementById("myButton");
+		var paragraph = document.getElementById("myParagraph");
+
+		// Adiciona o evento de clique ao botão
+		button.addEventListener("click", function() {
+			// Remove o atributo "class" do parágrafo
+			paragraph.removeAttribute("class");
+		});
+	</script>
+</body>
+</html>
+
+

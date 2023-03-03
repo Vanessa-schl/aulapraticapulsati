@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Alterar Conteúdo de Elementos HTML</title>
+  </head>
+  <body>
+
+    <!-- Crie um botão e use o método addEventListener para adicionar um evento de clique que altere o conteúdo de vários elementos HTML de uma só vez. -->
+    <h1>Conteúdo Original</h1>
+    <p>Este é o conteúdo original.</p>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <button id="alterar">Alterar Conteúdo</button>
+
+    <script>
+      const button = document.getElementById('alterar');
+      button.addEventListener('click', function() {
+        const titulo = document.querySelector('h1');
+        const paragrafo = document.querySelector('p');
+        const itens = document.querySelectorAll('li');
+        titulo.textContent = 'Novo Título';
+        paragrafo.textContent = 'Este é o novo conteúdo.';
+        itens.forEach(item => {
+          item.textContent = 'Novo Item';
+        });
+      });
+    </script>
+  </body>
+</html>

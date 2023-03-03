@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 1. Crie dois inputs no html, e crie um select do html
+         aonde o usuario irá colocar numeros nos 2 inputs 
+         selecionar a operação + - * / e depois mostrar o 
+         resultado após clicar no botão calcular -->
+    <h4>Escolha dois numeros para fazer a operação</h4>
+    
+    <label >Numero 1:</label>
+    <input type="number" id="n1"/>
+    <label>Numero 2:</label>
+    <input type="number" id="n2">
+
+    <select id="operacao">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+   
+    <p id="resultado"></p>
+
+    <button type="button" onclick="Calcular()">Calcular</button>
+    
+    <span>Resultado:</span>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

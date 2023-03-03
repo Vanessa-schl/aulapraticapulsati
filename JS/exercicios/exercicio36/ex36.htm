@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Alterar Estilo de Elementos HTML</title>
+    <style>
+      .original {
+        color: black;
+        font-weight: normal;
+      }
+      .alterado {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <!--  Crie um botão e use o método addEventListener para adicionar um evento de clique que altere o estilo de vários elementos HTML de uma só vez. -->
+  <body>
+    <h1 class="original">Título Original</h1>
+    <p class="original">Este é o conteúdo original.</p>
+    <ul>
+      <li class="original">Item 1</li>
+      <li class="original">Item 2</li>
+      <li class="original">Item 3</li>
+    </ul>
+    <button id="alterar">Alterar Estilo</button>
+
+    <script>
+      const button = document.getElementById('alterar');
+      button.addEventListener('click', function() {
+        const titulo = document.querySelector('h1');
+        const paragrafo = document.querySelector('p');
+        const itens = document.querySelectorAll('li');
+        titulo.classList.toggle('alterado');
+        paragrafo.classList.toggle('alterado');
+        itens.forEach(item => {
+          item.classList.toggle('alterado');
+        });
+      });
+    </script>
+  </body>
+</html>

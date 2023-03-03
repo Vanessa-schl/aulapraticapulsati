@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemplo de remoção de elemento HTML</title>
+  </head>
+  <body>
+    <!-- Crie uma função que, quando chamada, remova um elemento HTML filho de outro elemento HTML existente. -->
+    <div id="pai">
+      <p>Eu sou um parágrafo dentro do div pai.</p>
+      <button onclick="removerFilho()">Remover parágrafo</button>
+    </div>
+  </body>
+  <script>
+    function removerFilho() {
+      var pai = document.getElementById("pai");
+      var filho = pai.querySelector("p");
+      pai.removeChild(filho);
+    }
+  </script>
+</html>

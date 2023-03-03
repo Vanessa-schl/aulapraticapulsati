@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adicionar atributo a elemento HTML</title>
+</head>
+<body>
+
+    <!-- Crie um botão e use o método addEventListener para adicionar um evento 
+        de clique que adicione um atributo a um elemento HTML. -->
+	<p id="myParagraph">Este é um parágrafo sem atributo.</p>
+	<button id="myButton">Adicionar atributo</button>
+
+	<script>
+		// Seleciona o botão e o parágrafo
+		var button = document.getElementById("myButton");
+		var paragraph = document.getElementById("myParagraph");
+
+		// Adiciona o evento de clique ao botão
+		button.addEventListener("click", function() {
+			// Adiciona o atributo "style" com valor "color: red" ao parágrafo
+			paragraph.setAttribute("style", "color: red");
+		});
+	</script>
+</body>
+</html>
