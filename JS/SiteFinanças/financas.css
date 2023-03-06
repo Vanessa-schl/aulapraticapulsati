@@ -134,15 +134,29 @@ header {
     color: rgb(228, 63, 90)
 }
 
-.divDesc, .divAmount, .divType{
+#transaction-form{
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
     gap: 2rem;
+    margin-left: 20rem;
+    margin-top: 3rem;
 }
 
-.btnNew{
+#transaction-history{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    width: 50rem;
+    margin-left: 17rem;
+
+}
+
+#transaction-submit{
     background-color: pink;
     color: white;
     border: none;
@@ -154,6 +168,35 @@ header {
     border: 1px solid rgb(235, 76, 103);
 }
 
+.delete-btn{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: pink;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 34px;
+    align-items: center;
+    border: 1px solid rgb(235, 76, 103);
+}
+
+.botaozinho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.classTD{
+    width: 0.5rem;
+    margin-left: 2rem;
+}
+
+
+
 input, select{
     padding: 5px;
     background-color: pink;
@@ -162,19 +205,23 @@ input, select{
     border: 1px solid rgb(235, 76, 103);
 }
 
-.divTable{
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-}
-
-
-ol{
+tr{
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     flex-direction: row;
     gap: 15rem;
     margin-top: 3rem;
+}
+
+th{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 1rem;
 }
 
 

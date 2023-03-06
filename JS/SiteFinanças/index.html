@@ -30,7 +30,7 @@
             <p class="entrada">Entradas</p>
             <img class="setaCima" src="./seta-para-cima (1).png" alt="" />
           </div>
-          <p class="entrada">R$ 0.0</p>
+          <p class="entrada">Entradas</p>
         </div>
 
         <div class="card2">
@@ -38,7 +38,7 @@
             <p class="saida">Saídas</p>
             <img class="setaBaixo" src="./seta-para-baixo (1).png" alt="" />
           </div>
-          <p class="saida">-R$ 0.0</p>
+          <p class="saida">Saídas</p>
         </div>
 
         <div class="card3">
@@ -46,7 +46,7 @@
             <p class="total">Total</p>
             <img class="cifrao" src="./cifrao.png" alt="" />
           </div>
-          <p class="total">R$ 0.0</p>
+          <p class="total">Total</p>
         </div>
       </div>
 
@@ -54,46 +54,32 @@
         <p> Nova Transação: </p>
       </div>
 
-      <div class="novoItem">
-        <div class="divDesc">
+      <form id="transaction-form">
+   
+        <!-- <div class="divDesc">
             <label for="desc">Descrição</label>
             <input type="text" id="desc"/>
-        </div>
-
-        <div class="divAmount">
-            <label for="amount">Valor</label>
-            <input type="text" id="amount" />
-        </div>
-
-        <div class="divType">
-            <label for="type">Tipo de transação: </label>
-            <select id="type">
-                <option>Entrada</option>
-                <option>Saída</option>
+        </div> -->
+            <label for="amount-input">Valor</label>
+            <input type="number" id="amount-input" name="amount" required />
+            <label for="type-select">Tipo de transação: </label>
+            <select id="type-select" name="type" required>
+                <option value="Entrada">Entrada</option> //RECEITA
+                <option value="Saída">Saída</option> //DESEPSA
             </select>
-            <div>
-                <button class="btnNew">Incluir</button>
-            </div>
-        </div>
-            
+                <button type="submit" id="transaction-submit">Incluir</button>
+        </form>  
 
-            <div class="divTable">
-                    <ol>
-                            <li>Descrição </li>
-                            <li class="columnAmount">Valor </li>
-                            <li class="columnType">Tipo </li>
-                            <li class="columnAction"></li>
-                    </ol>
-            </div>
-
-            <tbody></tbody>
-        </div>
-        </div>
-
-
-
-
-
+            <table id="transaction-history">
+              <thead>
+                    <tr>
+                            <!-- <li>Descrição </li> -->
+                            <th>Valor </th>
+                            <th>Tipo</th>
+                    </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
 
     </main>
 
