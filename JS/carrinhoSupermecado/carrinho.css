@@ -312,6 +312,22 @@ button {
   margin-left: 3.6rem;
 }
 
+.preço{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.preço1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    justify-content: center;
+    text-align: center;
+    margin-right: 2rem;
+}
 
 
 
