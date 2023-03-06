@@ -1,0 +1,353 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+header {
+  background-color: black;
+  /* background-image: url("./flag.gif"); */
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  border-bottom: 1px dotted gray;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(134, 134, 134);
+  margin-right: 6rem;
+  width: 14rem;
+}
+
+.gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 5.5rem;
+  height: 5rem;
+}
+
+body {
+  background-color: black;
+}
+
+.parteSuperior {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  background-color: black;
+  cursor: pointer;
+}
+
+.superiorDireita {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: white;
+  gap: 5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.superiorEsquerda {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  color: white;
+  width: 4rem;
+}
+
+.pedido {
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 0px rgba(26, 102, 11, 0.616);
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  transition: all 0.3s ease-out;
+  border-left: 0.3rem solid rgb(62, 175, 18);
+}
+
+.promocao {
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.616);
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  transition: all 0.3s ease-out;
+  border-left: 0.3rem solid rgba(255, 255, 255, 0.801);
+}
+
+.cardapio {
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px 0px rgba(139, 16, 16, 0.616);
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  transition: all 0.3s ease-out;
+  border-left: 0.3rem solid rgb(138, 26, 26);
+}
+
+.cima {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5rem;
+}
+
+.pizza1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 18rem;
+  height: 18rem;
+  margin-bottom: 2rem;
+}
+
+.pizza2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 19rem;
+  height: 19rem;
+  margin-bottom: 0.7rem;
+}
+
+.texto1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sabor1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.descricao1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.adicionar1 {
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(13, 88, 13);
+  padding: 10px;
+  margin: 5px;
+  width: 180px;
+  transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 3rem;
+}
+
+.texto2 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sabor2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.descricao2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.adicionar2 {
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(13, 88, 13);
+  padding: 10px;
+  margin: 5px;
+  width: 180px;
+  transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 3.6rem;
+}
+
+.baixo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5rem;
+}
+
+.pizza3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 18rem;
+  height: 18rem;
+  margin-bottom: 0.7rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pizza4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 18rem;
+  height: 18rem;
+  margin-bottom: 2rem;
+}
+
+.texto3 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sabor3 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  margin-right: 3rem;
+}
+
+.descricao3 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.adicionar3 {
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(13, 88, 13);
+  padding: 10px;
+  margin: 5px;
+  width: 180px;
+  transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 3.6rem;
+}
+
+.texto4 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sabor4 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.descricao4 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 0.4rem;
+}
+
+.adicionar4 {
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(13, 88, 13);
+  padding: 10px;
+  margin: 5px;
+  width: 180px;
+  transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 3.6rem;
+}
+
+
+
+
+/* estilo para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+
